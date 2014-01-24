@@ -13,6 +13,7 @@ window.requestAnimFrame =   (
 
 function gameloop()
 {
-    //Game.ctx.drawImage(Game.buffer, 0, 0, Game.canvas.width, Game.canvas.height);
+    context.clearRect(0,0,canvasWidth,canvasHeight);
+    context.drawImage(canvasBuffer,0,0);
     requestAnimationFrame(gameloop);
 }

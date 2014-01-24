@@ -1,14 +1,21 @@
+var canvas, context;
+var canvasBuffer, contextBuffer;
+var canvasWidth = 640, canvasHeight = 480;
+var game = null;
+
 $(function() {
     function init () {
-        /*Game.canvas  = document.getElementById("canvas");
-        Game.ctx = Game.canvas.getContext("2d");
+        //declarer le canvas
+        canvas                     =       document.getElementById("canvas");
+        context                    =       canvas.getContext('2d');
+        canvas.width               =       canvasWidth;
+        canvas.height              =       canvasHeight;
+        //buffer
+        canvasBuffer               =       document.createElement("canvas");
+        contextBuffer              =       canvasBuffer.getContext('2d');
+        canvasBuffer.width         =       canvasWidth;
+        canvasBuffer.height        =       canvasHeight;
 
-        Game.buffer = document.createElement("canvas");
-        Game.bufferCtx = Game.buffer.getContext("2d");
-        Game.buffer.width = 1024;
-        Game.buffer.height = 768;
-        Game.bufferCtx.fillStyle = "white";
-        GUI();*/
         gameloop();
     }
     init();
