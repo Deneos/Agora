@@ -1,5 +1,4 @@
-var canvas, context;
-var canvasBuffer, contextBuffer;
+var canvas, context, canvasBuffer, contextBuffer;
 var canvasWidth = 640, canvasHeight = 480;
 var game = null;
 
