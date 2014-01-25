@@ -2,6 +2,10 @@ var canvas, context, canvasBuffer, contextBuffer;
 var canvasWidth = 1280, canvasHeight = 720;
 var game = null;
 var mouseClick = false;
+var posMouse = {
+    x : 0,
+    y : 0
+}
 
 $(function() {
     function init () {
