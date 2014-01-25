@@ -74,12 +74,12 @@ var People = function(params)
 	{
 		if(this.nature==="bad")
 		{	
-			game.player.assurance+=10;
+			game.player.assurance+=5;
 			game.crowd.nb_of_bad--;
 		}
 		if(this.nature==="nice")
 		{	
-			game.player.assurance-=10;
+			game.player.assurance-=5;
 			game.crowd.nb_of_nice--;
 		}
 		this.alive = false;
