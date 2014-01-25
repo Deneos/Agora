@@ -9,5 +9,13 @@ var Player = function(gender)
         legs :  "imagelegs",
         feet :  "imagefeet"
     };
+
+    this.update = function()
+    {
+        if(this.assurance > 100)
+            this.assurance = 100;
+        if(this.assurance < 0)
+            this.assurance = 0;
+    }
     
 }

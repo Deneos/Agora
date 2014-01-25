@@ -12,6 +12,7 @@ var Game = function()
     {
         this.crowd.update();
         this.level.motor();
+        this.player.update();
     }
     this.render = function()
     {
