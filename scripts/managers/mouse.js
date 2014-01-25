@@ -8,8 +8,7 @@ var mouseManager = {
     totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
     e.x = event.pageX;
     e.y = event.pageY;
-    posMouse.x = e.x;
-    posMouse.y = e.y;
+    distanceSound(e)
   },
   eMouseDown : function() {
       mouseClick = true;
@@ -29,7 +28,6 @@ var mouseManager = {
     mouseClick = true;
   },
   eOnclick : function() {
-   config.son.fond.play(); 
  }
 }
 
@@ -47,13 +45,29 @@ function shootEnnemy()
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
         && maxSquareY > posMouse.y && mouseClick)
         { 
-           if(ennemie.nature === "neutral"){
+           if(ennemie.nature === "neutral")
               ennemie.nature = "good"; 
-              config.son.fond.play();
-            }
 
             if(ennemie.nature === "bad")
               ennemie.nature = "withoutFaceNeutral"; 
         }
     }
+}
+
+function distanceSound(e)
+{   
+  var limitDistance = 10;
+    for(var i = 0; i < game.crowd.tabPeople.length; i++)
+    {
+      var distance = Math.round(Math.sqrt(Math.pow(game.crowd.tabPeople[i].x-e.x , 2) + Math.pow(game.crowd.tabPeople[i].y-e.y , 2)));
+      if(distance < limitDistance){
+        var valueVolume = (limitDistance - distance ) / 10;
+        game.crowd.tabPeople[i].sound.volume(valueVolume);
+      }
+      else{
+          var valueVolume = 0;
+          game.crowd.tabPeople[i].sound.volume(valueVolume);
+      }
+    }
+
 }

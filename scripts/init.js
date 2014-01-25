@@ -29,7 +29,7 @@ $(function() {
         game.level.init();
         game.mist.init();
         gameloop();
-
+        /*
         var params = {
            url      : config.howlerSounds.Agora_OST_01.source,
            autoplay : config.howlerSounds.Agora_OST_01.autoplay,
@@ -38,6 +38,7 @@ $(function() {
            buffer   : config.howlerSounds.Agora_OST_01.buffer
         };
         soundManager(params);
+        */
     }
     init();
 });
