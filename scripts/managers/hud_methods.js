@@ -51,6 +51,7 @@ var TextEffect = function(x,y,value)
         this.y -= this.speed;
         if(this.clicOpacity<=0)
         {
+            this.clicOpacity = 0;
             this.alive = false;
         }
     }

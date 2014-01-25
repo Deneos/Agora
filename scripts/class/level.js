@@ -60,7 +60,7 @@ var Level = function()
                 }
                 else
                 {    
-                    var carac = 'neutre';
+                    var carac = 'neutral';
                     game.crowd.nb_of_nice++;
                 }
                 game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
@@ -73,12 +73,12 @@ var Level = function()
                 var aleaNature = Math.round(Math.random()*2);
                 if(aleaNature===1)
                 {    
-                    var carac = 'nice';
+                    var carac = 'neutral';
                     game.crowd.nb_of_nice++;
                 }
                 else
                 {    
-                    var carac = 'neutre';
+                    var carac = 'bad';
                     game.crowd.nb_of_bad++;
                 }
                 game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));

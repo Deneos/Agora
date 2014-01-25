@@ -22,6 +22,7 @@ var People = function(params)
 	this.nb_of_frame = 4;
 
 	this.sentance = params.sentance;
+	this.said = false;
 	this.sound = params.sound;
 
 	this.width = 30;
@@ -92,7 +93,7 @@ var People = function(params)
     {
         //the f is time frame, to fluidify the animation
         this.f++;
-        if(this.f%6==0)
+        if(this.f%12==0)
         {
             this.currentFrameX+=this.frameWidth;
             if(this.currentFrameX>=(this.nb_of_frame*this.frameWidth))
@@ -107,36 +108,44 @@ var People = function(params)
 		{	
 			game.player.assurance+=5;
 			game.crowd.nb_of_bad--;
-			if(game.player.gender==="male")
+			if(game.player.gender==="male" && this.said==false)
 			{	
 				var aleaPhrase = Math.round(Math.random()*config.male.bad.sentences.length);
 				this.sentances = config.male.bad.sentences[aleaPhrase];
 			}
-			if(game.player.gender==="female")
+			if(game.player.gender==="female" && this.said==false)
 			{	
 				var aleaPhrase = Math.round(Math.random()*config.female.bad.sentences.length);
 				this.sentances = config.male.bad.sentences[aleaPhrase];
 			}
-			var t = new TextEffect(this.x,this.y-20,this.sentances);
-			game.effect.push(t);
+			if(this.said==false)
+			{
+				var t = new TextEffect(this.x,this.y-20,this.sentances);
+				game.effect.push(t);
+				this.said = true;
+			}
 		}
 
 		if(this.nature==="neutral")
 		{	
 			game.player.assurance-=5;
 			game.crowd.nb_of_nice--;
-			if(game.player.gender==="male")
+			if(game.player.gender==="male" && this.said==false)
 			{	
 				var aleaPhrase = Math.round(Math.random()*config.male.good.sentences.length);
 				this.sentances = config.male.bad.sentences[aleaPhrase];
 			}
-			if(game.player.gender==="female")
+			if(game.player.gender==="female" && this.said==false)
 			{	
 				var aleaPhrase = Math.round(Math.random()*config.female.good.sentences.length);
 				this.sentances = config.male.bad.sentences[aleaPhrase];
 			}
-			var t = new TextEffect(this.x,this.y-20,this.sentances);
-			game.effect.push(t);
+			if(this.said==false)
+			{
+				var t = new TextEffect(this.x,this.y-20,this.sentances);
+				game.effect.push(t);
+				this.said = true;
+			}
 		}
 
 		this.alive = false;
