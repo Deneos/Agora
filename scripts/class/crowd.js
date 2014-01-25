@@ -164,7 +164,7 @@ var Crowd = function()
 	
 	this.render = function()
 	{
-		context.fillStyle = "blue";
+		/*context.fillStyle = "blue";
 		context.fillRect(this.slot[0].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[0].end,canvasHeight-4,4,4);
 		context.fillRect(this.slot[1].begin,(canvasHeight/2)+100,4,4);
@@ -178,7 +178,7 @@ var Crowd = function()
 		context.fillRect(this.slot[5].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[5].end,canvasHeight-4,4,4);
 		context.fillRect(this.slot[6].begin,(canvasHeight/2)+100,4,4);
-		context.fillRect(this.slot[6].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[6].end,canvasHeight-4,4,4);*/
 
 		for(var i = this.tabPeople.length-1; i > 0; i--)
 		{

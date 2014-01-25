@@ -38,7 +38,6 @@ $(function() {
 });
 function begin(sex)
 {
-    var sex = sex;
     hideHUD();
     game                       =       new Game(sex);
 

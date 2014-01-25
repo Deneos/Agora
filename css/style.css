@@ -9,7 +9,7 @@ canvas
     width: 1280px;
     height: 720px;
     border: 1px solid black;
-    background:url(../medias/images/femme0.png);
+    background:url(../medias/images/menu.png);
 }
 #HUD
 {
@@ -73,14 +73,14 @@ canvas
     display: none;
     position: absolute;
     top: 600px;
-    left: 500px;
+    left: 400px;
 }
 .credit
 {
     font-size: 24px;
     width: 800px;
-    left: -50px;
-    top : -50px;
+    left: -100px;
+    top : -100px;
 }
 #GC
 {
