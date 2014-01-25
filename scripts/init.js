@@ -30,17 +30,14 @@ $(function() {
         game.mist.init();
         gameloop();
 
-
         var params = {
-           url      : config.female.head.good.sound[0],
+           url      : config.howlerSounds.Agora_OST_01.source,
            autoplay : config.howlerSounds.Agora_OST_01.autoplay,
            loop     : config.howlerSounds.Agora_OST_01.loop,
            volume   : config.howlerSounds.Agora_OST_01.volume,
            buffer   : config.howlerSounds.Agora_OST_01.buffer
-        }
-
+        };
         soundManager(params);
-
     }
     init();
 });

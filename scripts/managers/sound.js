@@ -11,6 +11,6 @@ function soundManager(params)
 
 function soundClick()
 {
-	config.son.fond.play();
+	//config.son.fond.play();
 }
 
