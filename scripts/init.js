@@ -15,7 +15,7 @@ $(function() {
         canvasBuffer.width         =       canvasWidth;
         canvasBuffer.height        =       canvasHeight;
         game                       =       new Game();
-
+        
         canvas.addEventListener('mousemove', eMousemove, false);
         gameloop();
     }

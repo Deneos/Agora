@@ -1,5 +1,4 @@
 function eMousemove(e) {
-  console.log("toto")
   var totalOffsetX = 0,
   totalOffsetY = 0;
 
@@ -11,5 +10,5 @@ function eMousemove(e) {
   //update of the mouse attributes
   e.x = event.pageX;
   e.y = event.pageY;
-  console.log(e.y + " " + e.x);
 }
+
