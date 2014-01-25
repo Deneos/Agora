@@ -20,6 +20,7 @@ $(function() {
         
         canvas.addEventListener('mousemove', mouseManager.eMousemove, false);
         canvas.addEventListener('click', mouseManager.eOnclick, false);
+        console.log(Level);
         game.level                 =       new Level();
         game.level.init();
         game.mist.init();
