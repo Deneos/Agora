@@ -12,6 +12,7 @@ canvas
 }
 #HUD
 {
+    display: none;
     position: absolute;
     top: 0px;
     left: 640px;
@@ -34,4 +35,21 @@ canvas
 {
     color : #666699;
 }
-
+#male 
+{
+    display: none;
+    width: 65px;
+    height: 65px;
+    border: 2px solid black;
+}
+#female
+{
+    display: none;
+    width: 65px;
+    height: 65px;
+    border: 2px solid black;
+}
+#return
+{
+    display: none;
+}
