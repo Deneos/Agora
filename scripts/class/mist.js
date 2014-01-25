@@ -35,12 +35,12 @@ var Mist = function()
     {
         if(game.player.assurance<50)
         {
-            this.image2alpha = (game.player.assurance/100)*2;
+            this.image2alpha = 1-((game.player.assurance/100)*2);
             this.image1alpha = 0;
         }
         if(game.player.assurance>50)
         {
-            this.image1alpha = 1-((game.player.assurance/100)*2);
+            this.image1alpha = (game.player.assurance/100)*2;
             this.image2alpha = 0;
         }
         context.globalAlpha = 1;

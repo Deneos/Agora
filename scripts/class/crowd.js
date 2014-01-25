@@ -73,12 +73,9 @@ var People = function(params)
 	}
 	this.render = function()
 	{	
-		if(game.player.assurance<50)
-        {
-            this.imageAlpha = (game.player.assurance/100)*2;
-        }
-        else
-        	this.imageAlpha = 0;
+
+        this.imageAlpha = 1-((game.player.assurance/100));
+ 
 		/*if(this.nature === "bad")
 			context.fillStyle = "red";
 	
