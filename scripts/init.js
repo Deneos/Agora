@@ -1,5 +1,5 @@
 var canvas, context, canvasBuffer, contextBuffer;
-var canvasWidth = 640, canvasHeight = 480;
+var canvasWidth = 1280, canvasHeight = 960;
 var game = null;
 
 $(function() {
