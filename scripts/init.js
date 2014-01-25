@@ -4,8 +4,6 @@ var game = null;
 
 $(function() {
     function init () {
-        
-        soundManager();
         //declarer le canvas
         canvas                     =       document.getElementById("canvas");
         context                    =       canvas.getContext('2d');
@@ -24,6 +22,17 @@ $(function() {
         game.level.init();
         game.mist.init();
         gameloop();
+
+
+        var params = {
+           url      : config.female.head.good.sound[0],
+           autoplay : config.howlerSounds.Agora_OST_01.autoplay,
+           loop     : config.howlerSounds.Agora_OST_01.loop,
+           volume   : config.howlerSounds.Agora_OST_01.volume,
+           buffer   : config.howlerSounds.Agora_OST_01.buffer
+        }
+
+        soundManager(params);
 
     }
     init();
