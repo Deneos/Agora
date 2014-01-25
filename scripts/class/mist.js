@@ -43,7 +43,6 @@ var Mist = function()
             this.image1alpha = 1-((game.player.assurance/100)*2);
             this.image2alpha = 0;
         }
-        console.log(game.player.assurance);
         context.globalAlpha = 1;
         context.drawImage(this.background1,0,0);
         context.globalAlpha = this.image1alpha;
