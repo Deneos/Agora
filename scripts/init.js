@@ -16,7 +16,8 @@ $(function() {
         canvasBuffer.height        =       canvasHeight;
         game                       =       new Game();
         
-        canvas.addEventListener('mousemove', eMousemove, false);
+        canvas.addEventListener('mousemove', mouseManager.eMousemove, false);
+        canvas.addEventListener('click', mouseManager.eOnclick, false);
         gameloop();
     }
     init();
