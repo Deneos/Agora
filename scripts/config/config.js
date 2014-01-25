@@ -15,12 +15,15 @@ var config = {
 	},
 	'howlerSounds' : {
 		'Agora_OST_01' : {
-			'autoplay' : true,
+			'autoplay' : false,
 			'loop' 	   : true,
 			'volume'   : 0.5,
 			onend: function() {
 		    	console.log("Sound Finished !");
 		  }
 		}
+	},
+	'son' : {
+		'fond' : {}
 	}
 };

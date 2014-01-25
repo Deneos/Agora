@@ -9,7 +9,9 @@ var mouseManager = {
     e.x = event.pageX;
     e.y = event.pageY;
   },
+
   eOnclick : function() {
-    soundManager();
+    soundClick();
   }
 }
+

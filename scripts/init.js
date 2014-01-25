@@ -4,6 +4,8 @@ var game = null;
 
 $(function() {
     function init () {
+        
+        soundManager();
         //declarer le canvas
         canvas                     =       document.getElementById("canvas");
         context                    =       canvas.getContext('2d');
@@ -27,8 +29,6 @@ $(function() {
         game.crowd.tabPeople.push(new People({ slot : game.crowd.slot5, nature : 'nice', speed : 3}));
         game.crowd.tabPeople.push(new People({ slot : game.crowd.slot6, nature : 'nice', speed : 3}));
         game.crowd.tabPeople.push(new People({ slot : game.crowd.slot7, nature : 'nice', speed : 3}));
-
-
     }
     init();
 });
