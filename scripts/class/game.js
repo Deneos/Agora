@@ -4,12 +4,14 @@ var Game = function()
     this.player = new Player();
     this.crowd = new Crowd();
     this.mist = new Mist();
-
+    this.pause = false;
+    this.end = false;
 
     
     this.update = function()
     {
         this.crowd.update();
+        this.level.motor();
     }
     this.render = function()
     {

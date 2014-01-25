@@ -12,4 +12,3 @@ function soundClick()
 {
 	config.son.fond.play();
 }
-
