@@ -26,8 +26,12 @@ function shootEnnemy(mouse)
 {
     for(var i = 0; i < game.crowd.tabPeople.length; i++)
     {
-      var distance = getDistance(game.crowd.tabPeople[i], mouse);
+      var ennemie = game.crowd.tabPeople[i];
 
+      var minSquareX = ennemie.x - ennemie.height;
+
+      console.log(minSquareX);
+      /*
       if(distance < 10 && mouseClick)
       {
          if(game.crowd.tabPeople[i].nature === "bad" )
@@ -36,5 +40,6 @@ function shootEnnemy(mouse)
          if(game.crowd.tabPeople[i].nature === "neutral" && game.crowd.tabPeople[i].type === "neutral")
             game.crowd.tabPeople[i].nature = "nice";
       }
+      */
     }
 }
