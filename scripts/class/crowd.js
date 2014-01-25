@@ -107,12 +107,36 @@ var People = function(params)
 		{	
 			game.player.assurance+=5;
 			game.crowd.nb_of_bad--;
+			if(game.player.gender==="male")
+			{	
+				var aleaPhrase = Math.round(Math.random()*config.male.bad.sentences.length);
+				this.sentances = config.male.bad.sentences[aleaPhrase];
+			}
+			if(game.player.gender==="female")
+			{	
+				var aleaPhrase = Math.round(Math.random()*config.female.bad.sentences.length);
+				this.sentances = config.male.bad.sentences[aleaPhrase];
+			}
+			var t = new TextEffect(this.x,this.y-20,this.sentances);
+			game.effect.push(t);
 		}
 
 		if(this.nature==="neutral")
 		{	
 			game.player.assurance-=5;
 			game.crowd.nb_of_nice--;
+			if(game.player.gender==="male")
+			{	
+				var aleaPhrase = Math.round(Math.random()*config.male.good.sentences.length);
+				this.sentances = config.male.bad.sentences[aleaPhrase];
+			}
+			if(game.player.gender==="female")
+			{	
+				var aleaPhrase = Math.round(Math.random()*config.female.good.sentences.length);
+				this.sentances = config.male.bad.sentences[aleaPhrase];
+			}
+			var t = new TextEffect(this.x,this.y-20,this.sentances);
+			game.effect.push(t);
 		}
 
 		this.alive = false;

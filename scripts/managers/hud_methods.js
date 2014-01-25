@@ -37,3 +37,34 @@ function playButton()
     $("#male").fadeIn();
     $("#female").fadeIn();
 }
+var TextEffect = function(x,y,value)
+{
+    this.x = x;
+    this.y = y;
+    this.value = value;
+    this.speed = 1;
+    this.alive = true;
+    this.clicOpacity = 1;
+    this.effect = function()
+    {
+        this.clicOpacity-=0.005;
+        this.y -= this.speed;
+        if(this.clicOpacity<=0)
+        {
+            this.alive = false;
+        }
+    }
+    this.draw = function()
+    {
+        context.beginPath();
+        context.font = '24px "neuropol"';
+        context.lineWidth = 2;
+        //context.strokeStyle = "#43618F";
+        context.fillStyle = "#F4BE49";
+        context.globalAlpha = this.clicOpacity;
+        context.fillText(this.value, this.x, this.y);
+        //context.strokeText(this.value, this.x, this.y);
+        context.globalAlpha = 1;
+        context.closePath();
+    }
+}
