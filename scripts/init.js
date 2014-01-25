@@ -1,5 +1,5 @@
 var canvas, context, canvasBuffer, contextBuffer;
-var canvasWidth = 1280, canvasHeight = 960;
+var canvasWidth = 1280, canvasHeight = 720;
 var game = null;
 
 $(function() {
@@ -14,7 +14,9 @@ $(function() {
         contextBuffer              =       canvasBuffer.getContext('2d');
         canvasBuffer.width         =       canvasWidth;
         canvasBuffer.height        =       canvasHeight;
+        game                       =       new Game();
 
+        canvas.addEventListener('mousemove', eMousemove, false);
         gameloop();
     }
     init();
