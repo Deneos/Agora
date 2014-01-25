@@ -108,11 +108,13 @@ var People = function(params)
 			game.player.assurance+=5;
 			game.crowd.nb_of_bad--;
 		}
-		if(this.nature==="nice")
+
+		if(this.nature==="neutral")
 		{	
 			game.player.assurance-=5;
 			game.crowd.nb_of_nice--;
 		}
+
 		this.alive = false;
 		
 	}

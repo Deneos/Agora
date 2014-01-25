@@ -28,7 +28,7 @@ var Level = function()
     this.motor = function()
     {
         this.decount++;
-        if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 1)
+        if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 12)
         {   
             //neutre
             if(game.player.assurance >= 40 && game.player.assurance <= 60)
@@ -42,7 +42,7 @@ var Level = function()
                 }
                 else
                 {    
-                    var carac = 'nice';
+                    var carac = 'neutral';
                     game.crowd.nb_of_nice++;
                 }
                 game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
@@ -60,7 +60,7 @@ var Level = function()
                 }
                 else
                 {    
-                    var carac = 'nice';
+                    var carac = 'neutre';
                     game.crowd.nb_of_nice++;
                 }
                 game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
@@ -78,7 +78,7 @@ var Level = function()
                 }
                 else
                 {    
-                    var carac = 'bad';
+                    var carac = 'neutre';
                     game.crowd.nb_of_bad++;
                 }
                 game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));

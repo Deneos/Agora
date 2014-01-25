@@ -1,5 +1,15 @@
 var mouseManager = {
-  eMousemove: function() {
+  eMousemove: function(e) {
+    var totalOffsetX = 0,
+    totalOffsetY = 0;
+    var currentElement = this;
+    var event = e || window.e;
+    totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+    totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+    e.x = event.pageX;
+    e.y = event.pageY;
+    posMouse.x = e.x;
+    posMouse.y = e.y;
   },
   eMouseDown : function() {
       mouseClick = true;
@@ -19,8 +29,8 @@ var mouseManager = {
     mouseClick = true;
   },
   eOnclick : function() {
-   // soundClick();
-  }
+   config.son.fond.play(); 
+ }
 }
 
 function shootEnnemy()
@@ -36,9 +46,11 @@ function shootEnnemy()
 
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
         && maxSquareY > posMouse.y && mouseClick)
-        {
-           if(ennemie.nature === "normalNeutral")
+        { 
+           if(ennemie.nature === "neutral"){
               ennemie.nature = "good"; 
+              config.son.fond.play();
+            }
 
             if(ennemie.nature === "bad")
               ennemie.nature = "withoutFaceNeutral"; 
