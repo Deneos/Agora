@@ -10,3 +10,28 @@ canvas
     height: 720px;
     border: 1px solid black;
 }
+#HUD
+{
+    position: absolute;
+    top: 0px;
+    left: 640px;
+    font-family: 'neuropol';
+}
+#logo
+{
+    font-size: 124px;
+    margin-left: -250px;
+    margin-top: 150px;
+    margin-bottom: 50px; 
+}
+.button
+{
+    font-size: 48px;
+    margin-left: -70px;
+    margin-bottom : 30px;
+}
+.button:hover
+{
+    color : #666699;
+}
+
