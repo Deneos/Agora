@@ -123,23 +123,25 @@ var Crowd = function()
 	}];
 
 
+
+
 	this.render = function()
 	{
 		context.fillStyle = "blue";
-		context.fillRect(this.slot1.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot1.end,canvasHeight-4,4,4);
-		context.fillRect(this.slot2.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot2.end,canvasHeight-4,4,4);
-		context.fillRect(this.slot3.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot3.end,canvasHeight-4,4,4);
-		context.fillRect(this.slot4.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot4.end,canvasHeight-4,4,4);
-		context.fillRect(this.slot5.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot5.end,canvasHeight-4,4,4);
-		context.fillRect(this.slot6.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot6.end,canvasHeight-4,4,4);
-		context.fillRect(this.slot7.begin,(canvasHeight/2)+50,4,4);
-		context.fillRect(this.slot7.end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[0].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[0].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[1].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[1].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[2].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[2].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[3].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[3].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[4].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[4].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[5].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[5].end,canvasHeight-4,4,4);
+		context.fillRect(this.slot[6].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[6].end,canvasHeight-4,4,4);
 
 		for(var i = 0; i < this.tabPeople.length; i++)
 		{
