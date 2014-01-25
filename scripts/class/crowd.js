@@ -73,9 +73,15 @@ var People = function(params)
 	this.attack = function()
 	{
 		if(this.nature==="bad")
+		{	
 			game.player.assurance+=10;
+			game.crowd.nb_of_bad--;
+		}
 		if(this.nature==="nice")
+		{	
 			game.player.assurance-=10;
+			game.crowd.nb_of_nice--;
+		}
 		this.alive = false;
 		
 	}
@@ -84,6 +90,8 @@ var People = function(params)
 var Crowd = function()
 {
 	this.tabPeople = [];
+	this.nb_of_nice = 0;
+	this.nb_of_bad = 0;
 	this.slot = [{
 		begin : (canvasWidth/2)+50,
 		end : (canvasWidth/2)+50,
