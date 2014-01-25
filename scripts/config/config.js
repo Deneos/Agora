@@ -1,7 +1,5 @@
 var config = {
 	'male' : {
-
-
 	},
 	'female' : {
 		'head' : {
