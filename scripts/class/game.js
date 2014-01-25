@@ -13,6 +13,16 @@ var Game = function()
         this.crowd.update();
         this.level.motor();
         this.player.update();
+        //perdu
+        if(this.player.assurance<=0)
+        {
+            this.pause = true;
+        }
+        //gagne
+        if(this.player.assurance>=100)
+        {
+            this.pause = true;
+        }
     }
     this.render = function()
     {

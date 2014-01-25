@@ -1,7 +1,7 @@
 var People = function(params)
 {
 	this.x = params.slot.begin;
-	this.y = (canvasHeight/2)+50;
+	this.y = (canvasHeight/2)+100;
 	this.slotID = params.slot.id;
 	this.end = params.slot.end;
 	this.end = params.slot.end;
@@ -24,8 +24,8 @@ var People = function(params)
 	this.sentance = params.sentance;
 	this.sound = params.sound;
 
-	this.width = 15;
-	this.height = 50;
+	this.width = 30;
+	this.height = 100;
 	this.dirX = 0;
     this.dirY = 0;
     this.alive = true;
@@ -165,19 +165,19 @@ var Crowd = function()
 	this.render = function()
 	{
 		context.fillStyle = "blue";
-		context.fillRect(this.slot[0].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[0].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[0].end,canvasHeight-4,4,4);
-		context.fillRect(this.slot[1].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[1].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[1].end,canvasHeight-4,4,4);
-		context.fillRect(this.slot[2].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[2].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[2].end,canvasHeight-4,4,4);
-		context.fillRect(this.slot[3].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[3].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[3].end,canvasHeight-4,4,4);
-		context.fillRect(this.slot[4].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[4].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[4].end,canvasHeight-4,4,4);
-		context.fillRect(this.slot[5].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[5].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[5].end,canvasHeight-4,4,4);
-		context.fillRect(this.slot[6].begin,(canvasHeight/2)+50,4,4);
+		context.fillRect(this.slot[6].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[6].end,canvasHeight-4,4,4);
 
 		for(var i = this.tabPeople.length-1; i > 0; i--)

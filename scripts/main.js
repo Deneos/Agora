@@ -13,12 +13,13 @@ window.requestAnimFrame =   (
 
 function gameloop()
 {
-    context.clearRect(0,0,canvasWidth,canvasHeight);
-    
-    shootEnnemy();
-    mouseClick = false;
-    if(game!=null)
+
+
+    if(game!=null && game.pause===false)
     {
+        context.clearRect(0,0,canvasWidth,canvasHeight);
+        shootEnnemy();
+        mouseClick = false;
         game.update();
         game.render();
     }
