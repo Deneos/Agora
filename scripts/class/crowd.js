@@ -63,7 +63,7 @@ var People = function(params)
 		if(this.y < canvasHeight && this.timeScale%4===0)
 		{
 			this.width+=0.25;
-			this.height+=0.25;
+			this.height+=0.75;
 		}
 
 		if(this.y >= canvasHeight)
