@@ -2,15 +2,19 @@
 var Game = function()
 {
     this.player = new Player();
-    this.crowd = null;
+    this.crowd = new Crowd();
     this.mist = new Mist();
+
+
     
     this.update = function()
     {
-        
+        this.crowd.update();
     }
     this.render = function()
     {
+        this.mist.drawBackground();
+        this.crowd.render();
         this.mist.render();
     }
     return this;
