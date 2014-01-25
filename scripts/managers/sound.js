@@ -1,10 +1,11 @@
-function soundManager()
+function soundManager(params)
 {
 	config.son.fond = new Howl({
-	  urls: [config.female.head.good.sound[0]],
-	    autoplay: config.howlerSounds.Agora_OST_01.autoplay,
-		  loop: config.howlerSounds.Agora_OST_01.loop,
-		  volume: config.howlerSounds.Agora_OST_01.volume
+	  urls: [params.url],
+	    autoplay: params.autoplay,
+		  loop: params.loop,
+		  volume: params.volume,
+		  buffer: params.buffer
 	})
 }
 
@@ -12,3 +13,4 @@ function soundClick()
 {
 	config.son.fond.play();
 }
+

@@ -1,11 +1,10 @@
 var canvas, context, canvasBuffer, contextBuffer;
 var canvasWidth = 1280, canvasHeight = 720;
 var game = null;
+var mouseClick = false;
 
 $(function() {
     function init () {
-        
-        soundManager();
         //declarer le canvas
         canvas                     =       document.getElementById("canvas");
         context                    =       canvas.getContext('2d');
@@ -19,12 +18,25 @@ $(function() {
         game                       =       new Game();
         
         canvas.addEventListener('mousemove', mouseManager.eMousemove, false);
-        canvas.addEventListener('click', mouseManager.eOnclick, false);
-        console.log(Level);
+        canvas.addEventListener('mouseup',   mouseManager.eMouseUp, false);
+        canvas.addEventListener('mousedown', mouseManager.eMouseDown, false);
+        canvas.addEventListener('click',     mouseManager.eOnclick, false);
+
         game.level                 =       new Level();
         game.level.init();
         game.mist.init();
         gameloop();
+
+
+        var params = {
+           url      : config.female.head.good.sound[0],
+           autoplay : config.howlerSounds.Agora_OST_01.autoplay,
+           loop     : config.howlerSounds.Agora_OST_01.loop,
+           volume   : config.howlerSounds.Agora_OST_01.volume,
+           buffer   : config.howlerSounds.Agora_OST_01.buffer
+        }
+
+        soundManager(params);
 
     }
     init();

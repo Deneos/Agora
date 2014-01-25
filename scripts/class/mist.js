@@ -1,7 +1,7 @@
 var Mist = function()
 {
     this.background = new Image();
-    this.background.src = "medias/images/decor_line.jpg";
+    this.background.src = "medias/images/decor.png";
     this.init = function()
     {
         var grd = contextBuffer.createRadialGradient(canvasWidth/2,canvasHeight/2,5,90,60,canvasWidth);
@@ -14,7 +14,7 @@ var Mist = function()
     }
     this.drawBackground = function()
     {
-        context.drawImage(this.background,0,0,3508,2480,0,0,canvasWidth,canvasHeight);       
+        context.drawImage(this.background,0,0);       
     }
     this.render = function()
     {       
