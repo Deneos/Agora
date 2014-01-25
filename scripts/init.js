@@ -21,7 +21,6 @@ $(function() {
         canvas.addEventListener('mouseup',   mouseManager.eMouseUp, false);
         canvas.addEventListener('mousedown', mouseManager.eMouseDown, false);
         canvas.addEventListener('click',     mouseManager.eOnclick, false);
-
         game.level                 =       new Level();
         game.level.init();
         game.mist.init();
