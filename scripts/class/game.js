@@ -1,7 +1,7 @@
 //Objet global game qui gere tout les objets d'une session de jeu.
-var Game = function()
+var Game = function(sex)
 {
-    this.player = new Player("male");
+    this.player = new Player(sex);
     this.crowd = new Crowd();
     this.mist = new Mist();
     this.pause = false;

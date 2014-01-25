@@ -25,6 +25,9 @@ function returnToMenu()
 function hideHUD()
 {
     $("#HUD").fadeOut();
+    $("#logo").fadeOut();
+    $("#male").fadeOut();
+    $("#female").fadeOut();
 }
 
 function playButton()

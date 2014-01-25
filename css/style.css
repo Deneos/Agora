@@ -9,10 +9,10 @@ canvas
     width: 1280px;
     height: 720px;
     border: 1px solid black;
+    background:url(../medias/images/femme0.png);
 }
 #HUD
 {
-    display: none;
     position: absolute;
     top: 0px;
     left: 400px;
