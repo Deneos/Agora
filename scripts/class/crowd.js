@@ -7,6 +7,7 @@ var People = function(params)
 	this.end = params.slot.end;
 
 	this.nature = params.nature;
+	this.type   = this.nature; // Permet de savoir quel était le type de l'entité au début
 	this.speed  = params.speed;
 
 	this.sentance = params.sentance;
@@ -21,12 +22,12 @@ var People = function(params)
 
 	this.move = function()
 	{
-
 		var diffX = (this.x - this.end);
         var diffY = (this.y - canvasHeight);
         var distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
         var moveX = distance > this.speed ? (Math.abs(diffX) * (this.speed / distance)) : Math.abs(diffX);
-        var moveY = distance > this.speed ? (Math.abs(diffY) * (this.speed / distance)) : Math.abs(diffY); 
+        var moveY = distance > this.speed ? (Math.abs(diffY) * (this.speed / distance)) : Math.abs(diffY);
+
         if(this.x < this.end)
             this.dirX = 1;
         else
@@ -60,15 +61,13 @@ var People = function(params)
 		}
 	}
 	this.render = function()
-	{
-		if(this.nature==="nice")
-		{
-			context.fillStyle = "green";
-		}
-		if(this.nature==="bad")
-		{
+	{	
+		if(this.nature === "bad")
 			context.fillStyle = "red";
-		}
+	
+		if(this.nature === "neutral")
+			context.fillStyle = "blue";
+
 		context.fillRect(this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
 	}
 	this.attack = function()
@@ -121,11 +120,8 @@ var Crowd = function()
 		occupated : false,
 		id : 6
 	}];
-
-
-
-
-		this.render = function()
+	
+	this.render = function()
 	{
 		context.fillStyle = "blue";
 		context.fillRect(this.slot[0].begin,(canvasHeight/2)+50,4,4);

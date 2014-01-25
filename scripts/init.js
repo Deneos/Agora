@@ -1,6 +1,7 @@
 var canvas, context, canvasBuffer, contextBuffer;
 var canvasWidth = 1280, canvasHeight = 720;
 var game = null;
+var mouseClick = false;
 
 $(function() {
     function init () {
@@ -17,7 +18,9 @@ $(function() {
         game                       =       new Game();
         
         canvas.addEventListener('mousemove', mouseManager.eMousemove, false);
-        canvas.addEventListener('click', mouseManager.eOnclick, false);
+        canvas.addEventListener('mouseup',   mouseManager.eMouseUp, false);
+        canvas.addEventListener('mousedown', mouseManager.eMouseDown, false);
+        canvas.addEventListener('click',     mouseManager.eOnclick, false);
         game.level                 =       new Level();
         game.level.init();
         game.mist.init();

@@ -1,6 +1,5 @@
 function soundManager(params)
 {
-	console.log(params.url);
 	config.son.fond = new Howl({
 	  urls: [params.url],
 	    autoplay: params.autoplay,
