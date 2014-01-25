@@ -22,6 +22,7 @@ $(function() {
         canvas.addEventListener('click', mouseManager.eOnclick, false);
         game.level                 =       new Level();
         game.level.init();
+        game.mist.init();
         gameloop();
 
     }

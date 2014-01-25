@@ -14,7 +14,6 @@ window.requestAnimFrame =   (
 function gameloop()
 {
     context.clearRect(0,0,canvasWidth,canvasHeight);
-    context.drawImage(canvasBuffer,0,0);
     if(game!=null)
     {
         game.update();
