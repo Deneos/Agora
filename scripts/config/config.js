@@ -18,6 +18,7 @@ var config = {
 			'autoplay' : false,
 			'loop' 	   : true,
 			'volume'   : 0.5,
+			'buffer'   : true,
 			onend: function() {
 		    	console.log("Sound Finished !");
 		  }
