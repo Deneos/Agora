@@ -54,7 +54,7 @@ var People = function(params)
 			this.height+=0.25;
 		}
 
-		else
+		if(this.y >= canvasHeight)
 		{
 			this.attack();
 		}
@@ -125,7 +125,7 @@ var Crowd = function()
 
 
 
-	this.render = function()
+		this.render = function()
 	{
 		context.fillStyle = "blue";
 		context.fillRect(this.slot[0].begin,(canvasHeight/2)+50,4,4);
