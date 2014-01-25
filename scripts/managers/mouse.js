@@ -15,7 +15,7 @@ var mouseManager = {
   },
 
   eMouseUp : function() {
-      mouseClick = false;
+      mouseClick = false
   },
   eOnclick : function() {
    // soundClick();
@@ -29,7 +29,7 @@ function shootEnnemy(mouse)
       var distance = getDistance(game.crowd.tabPeople[i], mouse);
 
       if(distance < 10 && mouseClick)
-      { 
+      {
          if(game.crowd.tabPeople[i].nature === "bad" )
             game.crowd.tabPeople[i].nature = "neutral";
 
