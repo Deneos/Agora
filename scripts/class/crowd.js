@@ -10,11 +10,22 @@ var People = function(params)
 	this.type   = this.nature; // Permet de savoir quel était le type de l'entité au début
 	this.speed  = params.speed;
 
+	this.img	= new Image();
+	this.img2	= new Image();
+	this.img.src = params.src;
+	this.img2.src = params.src2;
+	this.imageAlpha = 0.5;
+	this.f = 0;
+	this.frameWidth = 150;
+	this.frameHeight = 500;
+	this.currentFrameX = 0;
+	this.nb_of_frame = 4;
+
 	this.sentance = params.sentance;
 	this.sound = params.sound;
 
-	this.width = 20;
-	this.height = 20;
+	this.width = 15;
+	this.height = 50;
 	this.dirX = 0;
     this.dirY = 0;
     this.alive = true;
@@ -62,14 +73,37 @@ var People = function(params)
 	}
 	this.render = function()
 	{	
-		if(this.nature === "bad")
+		if(game.player.assurance<50)
+        {
+            this.imageAlpha = (game.player.assurance/100)*2;
+        }
+        else
+        	this.imageAlpha = 0;
+		/*if(this.nature === "bad")
 			context.fillStyle = "red";
 	
 		if(this.nature === "neutral")
 			context.fillStyle = "blue";
 
-		context.fillRect(this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+		context.fillRect(this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);*/
+		context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+		context.globalAlpha = this.imageAlpha;
+		context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+		context.globalAlpha = 1;
 	}
+	this.animate = function ()
+    {
+        //the f is time frame, to fluidify the animation
+        this.f++;
+        if(this.f%6==0)
+        {
+            this.currentFrameX+=this.frameWidth;
+            if(this.currentFrameX>=(this.nb_of_frame*this.frameWidth))
+            {
+                this.currentFrameX = 0;
+            }
+        }
+    }
 	this.attack = function()
 	{
 		if(this.nature==="bad")
@@ -147,15 +181,16 @@ var Crowd = function()
 		context.fillRect(this.slot[6].begin,(canvasHeight/2)+50,4,4);
 		context.fillRect(this.slot[6].end,canvasHeight-4,4,4);
 
-		for(var i = 0; i < this.tabPeople.length; i++)
+		for(var i = this.tabPeople.length-1; i > 0; i--)
 		{
+			this.tabPeople[i].animate();
 			this.tabPeople[i].render();
 		}
 	}
 
 	this.update = function()
 	{
-		for(var i = 0; i < this.tabPeople.length; i++)
+		for(var i = this.tabPeople.length-1; i > 0; i--)
 		{
 			this.tabPeople[i].move();
 			this.tabPeople[i].scale();
