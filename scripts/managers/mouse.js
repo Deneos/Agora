@@ -1,5 +1,11 @@
 var mouseManager = {
-  eMousemove: function(e) {
+  eMousemove: function() {
+  },
+  eMouseDown : function() {
+      mouseClick = true;
+  },
+
+  eMouseUp : function(e) {
     var totalOffsetX = 0,
     totalOffsetY = 0;
     var currentElement = this;
@@ -8,38 +14,34 @@ var mouseManager = {
     totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
     e.x = event.pageX;
     e.y = event.pageY;
-    shootEnnemy(e);
-  },
-  eMouseDown : function() {
-      mouseClick = true;
-  },
-
-  eMouseUp : function() {
-      mouseClick = false
+    posMouse.x = e.x;
+    posMouse.y = e.y;
+    mouseClick = true;
   },
   eOnclick : function() {
    // soundClick();
   }
 }
 
-function shootEnnemy(mouse)
+function shootEnnemy()
 {
     for(var i = 0; i < game.crowd.tabPeople.length; i++)
     {
       var ennemie = game.crowd.tabPeople[i];
 
-      var minSquareX = ennemie.x - ennemie.height;
+      var minSquareX = Math.round(ennemie.x - ennemie.width/2);
+      var maxSquareX = Math.round(ennemie.x + ennemie.width/2);
+      var minSquareY = Math.round(ennemie.y - ennemie.height/2);
+      var maxSquareY = Math.round(ennemie.y + ennemie.height/2);
 
-      console.log(minSquareX);
-      /*
-      if(distance < 10 && mouseClick)
-      {
-         if(game.crowd.tabPeople[i].nature === "bad" )
-            game.crowd.tabPeople[i].nature = "neutral";
+        if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
+        && maxSquareY > posMouse.y && mouseClick)
+        {
+           if(ennemie.nature === "normalNeutral")
+              ennemie.nature = "good"; 
 
-         if(game.crowd.tabPeople[i].nature === "neutral" && game.crowd.tabPeople[i].type === "neutral")
-            game.crowd.tabPeople[i].nature = "nice";
-      }
-      */
+            if(ennemie.nature === "bad")
+              ennemie.nature = "withoutFaceNeutral"; 
+        }
     }
 }

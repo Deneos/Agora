@@ -28,7 +28,7 @@ var Level = function()
     this.motor = function()
     {
         this.decount++;
-        if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 12)
+        if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 1)
         {   
             //neutre
             if(game.player.assurance >= 40 && game.player.assurance <= 60)
