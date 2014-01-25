@@ -85,7 +85,6 @@ var People = function(params)
 var Crowd = function()
 {
 	this.tabPeople = [];
-<<<<<<< HEAD
 	this.slot = [{
 		begin : (canvasWidth/2)+50,
 		end : (canvasWidth/2)+50,
