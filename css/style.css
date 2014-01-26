@@ -112,3 +112,19 @@ canvas
     display: none;
     top: 500px;
 }
+#color
+{
+    position: absolute;
+    display: none;
+    top: 550px;
+}
+#global
+{
+    position: absolute;
+    background: url(../medias/images/GGJ14_logo.png);
+    top: 590px;
+    margin-left: -120px;
+    width: 124px;
+    height: 124px;
+    background-size: 100% 100%;
+}

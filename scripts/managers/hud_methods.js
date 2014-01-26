@@ -8,6 +8,7 @@ function credits()
     $("#GD").fadeIn(2000);
     $("#DEV").fadeIn(2500);
     $("#SD").fadeIn(3000);
+    $("#color").fadeIn(3500);
     $("#return").fadeIn();
 }
 function returnToMenu()
@@ -21,11 +22,13 @@ function returnToMenu()
     $("#GD").fadeOut();
     $("#DEV").fadeOut();
     $("#SD").fadeOut();
+    $("#color").fadeOut();
 }
 function hideHUD()
 {
     $("#HUD").fadeOut();
     $("#logo").fadeOut();
+    $("#global").fadeOut();
     $("#male").fadeOut();
     $("#female").fadeOut();
 }
