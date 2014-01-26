@@ -43,16 +43,18 @@ function shootEnnemy()
       var maxSquareY = Math.round(ennemie.y + ennemie.height/2);
 
       var toto = 500000;
+       console.log(game.crowd.tabPeople.length);
       // 600
       // 500
       //550
-      if(indexOf(ennemie) < toto)
+      /*if(indexOf(ennemie) < toto)
       {
         var toto = indexOf(ennemie);
-      }
+      }*/
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
         && maxSquareY > posMouse.y && mouseClick)
         { 
+
            if(ennemie.nature === "neutral"){
               ennemie.nature = "nice"; 
               ennemie.attack();

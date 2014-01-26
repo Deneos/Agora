@@ -58,6 +58,10 @@ canvas
     width: 191px;
     height: 191px;
 }
+#male:hover
+{
+
+}
 #female
 {
     position: absolute;
@@ -67,6 +71,10 @@ canvas
     left: 290px;
     width: 191px;
     height: 191px;
+}
+#female:hover
+{
+    
 }
 #return
 {
