@@ -45,11 +45,15 @@ function shootEnnemy()
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
         && maxSquareY > posMouse.y && mouseClick)
         { 
-           if(ennemie.nature === "neutral")
-              ennemie.nature = "good"; 
+           if(ennemie.nature === "neutral"){
+              ennemie.nature = "nice"; 
+              ennemie.attack();
+            }
 
-            if(ennemie.nature === "bad")
+            if(ennemie.nature === "bad"){
               ennemie.nature = "withoutFaceNeutral"; 
+              ennemie.attack();
+            }
         }
     }
 }
