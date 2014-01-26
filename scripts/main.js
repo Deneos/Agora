@@ -13,8 +13,6 @@ window.requestAnimFrame =   (
 
 function gameloop()
 {
-
-
     if(game!=null && game.pause===false)
     {
         context.clearRect(0,0,canvasWidth,canvasHeight);
