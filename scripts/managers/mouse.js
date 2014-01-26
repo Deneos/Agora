@@ -79,8 +79,8 @@ function distanceSound(e)
        && game.crowd.tabPeople[i].playedWalk != false)
       {
         game.crowd.tabPeople[i].sound.fadeIn(1, 5000);
-        game.crowd.tabPeople[i].message();
         game.crowd.tabPeople[i].playedWalk = false;
+        game.crowd.tabPeople[i].message();
       }
       else{
           game.crowd.tabPeople[i].sound.fadeOut(0, 5000, function(){
@@ -88,4 +88,48 @@ function distanceSound(e)
         });
       }
     }
+}
+
+var sonNormale = true;
+var sonMillieu = true;
+var sonFort = true
+
+function soundAmbiance()
+{
+  if(game.player.assurance > 40 && game.player.assurance < 60 && sonNormale) // Normale
+  { 
+  	hearthbeat.play();
+  	middleMist.play();
+    sonNormale = false;
+    sonMillieu = true;
+    sonFort    = true;
+    hardMist.unload();
+    slowMist.unload();
+    hearthbeatHard.unload();
+
+  }
+
+  if(game.player.assurance < 40 && sonMillieu) // // Va mal
+  {
+  	slowMist.play();
+    sonNormale = true;
+    sonMillieu = false;
+    sonFort    = true;
+    middleMist.unload();
+    hardMist.unload();
+    hearthbeat.unload();
+    hearthbeatHard.unload();
+  }
+
+  if(game.player.assurance > 60 && sonFort) // Milliuey
+  { 
+  	hearthbeatHard.play();
+  	hardMist.play();
+    sonNormale = true;
+    sonMillieu = true
+    sonFort    = false;
+    middleMist.unload();
+    slowMist.unload();
+    hearthbeat.unload();
+  }
 }
