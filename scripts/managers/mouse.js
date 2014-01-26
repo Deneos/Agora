@@ -31,6 +31,7 @@ var mouseManager = {
  }
 }
 
+var ennemieY = [];
 function shootEnnemy()
 {
     for(var i = 0; i < game.crowd.tabPeople.length; i++)
@@ -42,29 +43,23 @@ function shootEnnemy()
       var minSquareY = Math.round(ennemie.y - ennemie.height/2);
       var maxSquareY = Math.round(ennemie.y + ennemie.height/2);
 
-      var toto = 500000;
-       console.log(game.crowd.tabPeople.length);
-      // 600
-      // 500
-      //550
-      /*if(indexOf(ennemie) < toto)
-      {
-        var toto = indexOf(ennemie);
-      }*/
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
-        && maxSquareY > posMouse.y && mouseClick)
-        { 
+        && maxSquareY > posMouse.y && mouseClick && !ennemie.priority)
+          ennemie.priority = true;
+        
+           if(ennemie.priority){
+             if(ennemie.nature === "neutral"){
+                ennemie.nature = "nice"; 
+                ennemie.attack();
+                return;
+              }
 
-           if(ennemie.nature === "neutral"){
-              ennemie.nature = "nice"; 
-              ennemie.attack();
-            }
-
-            if(ennemie.nature === "bad"){
-              ennemie.nature = "withoutFaceNeutral"; 
-              ennemie.attack();
-            }
-        }
+              if(ennemie.nature === "bad"){
+                ennemie.nature = "withoutFaceNeutral"; 
+                ennemie.attack();
+                return;
+              }
+          }
     }
 }
 
