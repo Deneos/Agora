@@ -88,20 +88,18 @@ var People = function(params)
 	}
 	this.render = function()
 	{	
-
-        this.imageAlpha = 1-((game.player.assurance/100));
- 
-		/*if(this.nature === "bad")
-			context.fillStyle = "red";
-	
-		if(this.nature === "neutral")
-			context.fillStyle = "blue";
-
-		context.fillRect(this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);*/
-		context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
-		context.globalAlpha = this.imageAlpha;
-		context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
-		context.globalAlpha = 1;
+		if(this.nature === "withoutFaceNeutral")
+        {
+        	context.drawImage(this.img3,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+        }
+        else
+        {
+        	this.imageAlpha = 1-((game.player.assurance/100));
+        	context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+        	context.globalAlpha = this.imageAlpha;
+        	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+        	context.globalAlpha = 1;
+        }
 	}
 	this.animate = function ()
     {
@@ -140,6 +138,8 @@ var People = function(params)
 					this.said = true;
 				}
 			}
+			if(this.nature === "withoutFaceNeutral")
+				game.crowd.nb_of_bad--;
 			if(this.nature === "neutral")
 			{	
 				game.player.assurance-=5;
@@ -162,6 +162,20 @@ var People = function(params)
 				}
 			}
 		this.alive = false;
+		this.sound.unload();
+	}
+	this.cliked = function()
+	{	
+			if(this.nature === "bad")
+			{	
+				game.player.assurance-=5;
+				this.speed = 1;
+
+			}
+			if(this.nature === "neutral")
+			{	
+				this.speed = 1;
+			}
 		this.sound.unload();
 	}
 
