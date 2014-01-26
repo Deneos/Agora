@@ -19,16 +19,7 @@ $(function() {
         contextBuffer              =       canvasBuffer.getContext('2d');
         canvasBuffer.width         =       canvasWidth;
         canvasBuffer.height        =       canvasHeight;
-        game                       =       new Game();
         
-        canvas.addEventListener('mousemove', mouseManager.eMousemove, false);
-        canvas.addEventListener('mouseup',   mouseManager.eMouseUp, false);
-        canvas.addEventListener('mousedown', mouseManager.eMouseDown, false);
-        canvas.addEventListener('click',     mouseManager.eOnclick, false);
-        game.level                 =       new Level();
-        game.level.init();
-        game.mist.init();
-        gameloop();
     }
     init();
 });
