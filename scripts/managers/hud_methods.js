@@ -71,12 +71,12 @@ var TextEffect = function(x,y,color,value)
     {
         context.beginPath();
         context.font = '24px "neuropol"';
-        context.lineWidth = 2;
-        //context.strokeStyle = "#43618F";
+        context.lineWidth = 1;
+        context.strokeStyle = "black";
         context.fillStyle = this.color;
         context.globalAlpha = this.clicOpacity;
         context.fillText(this.value, this.x, this.y);
-        //context.strokeText(this.value, this.x, this.y);
+        context.strokeText(this.value, this.x, this.y);
         context.globalAlpha = 1;
         context.closePath();
     }

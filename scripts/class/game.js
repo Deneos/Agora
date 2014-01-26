@@ -18,11 +18,13 @@ var Game = function(sex)
         //perdu
         if(this.player.assurance<=0)
         {
+            this.effect = [];
             this.pause = true;
         }
         //gagne
         if(this.player.assurance>=100)
         {
+            this.effect = [];
             this.pause = true;
         }
 

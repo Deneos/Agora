@@ -50,13 +50,13 @@ function shootEnnemy()
            if(ennemie.priority){
              if(ennemie.nature === "neutral"){
                 ennemie.nature = "nice"; 
-                ennemie.attack();
+                ennemie.cliked();
                 return;
               }
 
               if(ennemie.nature === "bad"){
                 ennemie.nature = "withoutFaceNeutral"; 
-                ennemie.attack();
+                ennemie.cliked();
                 return;
               }
           }
