@@ -45,7 +45,6 @@ function shootEnnemy()
 
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
         && maxSquareY > posMouse.y && mouseClick && !ennemie.priority)
-          console.log()
           ennemie.priority = true;
         
            if(ennemie.priority){

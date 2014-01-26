@@ -224,7 +224,7 @@ var Crowd = function()
 		context.fillRect(this.slot[6].begin,(canvasHeight/2)+100,4,4);
 		context.fillRect(this.slot[6].end,canvasHeight-4,4,4);*/
 
-		for(var i = this.tabPeople.length-1; i > 0; i--)
+		for(var i = this.tabPeople.length-1; i >= 0; i--)
 		{
 			this.tabPeople[i].animate();
 			this.tabPeople[i].render();
@@ -238,7 +238,7 @@ var Crowd = function()
 
 	this.update = function()
 	{
-		for(var i = this.tabPeople.length-1; i > 0; i--)
+		for(var i = this.tabPeople.length-1; i >= 0; i--)
 		{
 			this.tabPeople[i].move();
 			this.tabPeople[i].scale();
