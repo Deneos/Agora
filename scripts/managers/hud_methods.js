@@ -31,6 +31,14 @@ function hideHUD()
     $("#global").fadeOut();
     $("#male").fadeOut();
     $("#female").fadeOut();
+    $("#return").fadeOut();
+    $("#GC").fadeOut();
+    $("#GD").fadeOut();
+    $("#GA").fadeOut();
+    $("#GD").fadeOut();
+    $("#DEV").fadeOut();
+    $("#SD").fadeOut();
+    $("#color").fadeOut();
 }
 
 function playButton()

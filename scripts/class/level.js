@@ -28,6 +28,7 @@ var Level = function()
     this.motor = function()
     {
         this.decount++;
+        console.log(game.crowd.nb_of_nice);
         if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 12)
         {   
             //neutre
