@@ -185,7 +185,7 @@ var People = function(params)
 		if(!this.said){
 			if(this.nature === "bad")
 			{
-				game.player.assurance += 5;
+				//game.player.assurance += 5;
 				if(game.player.gender === "male")
 				{	
 					var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
