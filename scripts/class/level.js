@@ -28,7 +28,6 @@ var Level = function()
     this.motor = function()
     {
         this.decount++;
-        console.log(game.crowd.nb_of_nice);
         if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 12)
         {   
             //neutre
@@ -49,13 +48,15 @@ var Level = function()
                 //image selection
                 var aleaImage = Math.round(Math.random()*4);
                 if(aleaImage===0)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png", src3 : "medias/images/nice3.png" }));
                 if(aleaImage===1)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png", src3 : "medias/images/gentils3.png"}));
                 if(aleaImage===2)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png", src3 : "medias/images/mechant3.png"}));
                 if(aleaImage===3)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
+                if(aleaImage===4)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/evil1.png", src2 : "medias/images/evil2.png", src3 : "medias/images/evil3.png"}));
 
 
             }
@@ -85,6 +86,8 @@ var Level = function()
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png", src3 : "medias/images/mechant3.png"}));
                 if(aleaImage===3)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
+                if(aleaImage===4)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/evil1.png", src2 : "medias/images/evil2.png", src3 : "medias/images/evil3.png"}));
             }
 
             //mal
@@ -112,6 +115,8 @@ var Level = function()
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png", src3 : "medias/images/mechant3.png"}));
                 if(aleaImage===3)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
+                if(aleaImage===4)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/evil1.png", src2 : "medias/images/evil2.png", src3 : "medias/images/evil3.png"}));
             }
 
 
