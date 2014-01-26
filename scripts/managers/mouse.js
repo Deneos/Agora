@@ -76,7 +76,7 @@ function distanceSound(e)
       var centerEnnemy = Math.round(ennemie.width/2);
 
       if((minSquareX-10) < e.x && (maxSquareX+10) > e.x && (minSquareY-10) < e.y && (maxSquareY +10) > e.y
-       && game.crowd.tabPeople[i].playedWalk != undefined)
+       && game.crowd.tabPeople[i].playedWalk != false)
       {
         game.crowd.tabPeople[i].sound.fadeIn(1, 5000);
         game.crowd.tabPeople[i].message();
@@ -87,16 +87,5 @@ function distanceSound(e)
           game.crowd.tabPeople[i].playedWalk = true;
         });
       }
-      /*
-      var distance = Math.round(Math.sqrt(Math.pow(game.crowd.tabPeople[i].x-e.x , 2) + Math.pow(game.crowd.tabPeople[i].y-e.y , 2)));
-      if(distance < limitDistance){
-        var valueVolume = (limitDistance - distance ) / 50;s
-        game.crowd.tabPeople[i].female01.volume(valueVolume);
-        game.crowd.tabPeople[i].message();
-      }
-      else{
-          var valueVolume = 0;
-          game.crowd.tabPeople[i].female01.volume(valueVolume);
-      }*/
     }
 }
