@@ -6,7 +6,7 @@ var posMouse = {
     x : 0,
     y : 0
 }
-var backgroundSound;
+var backgroundSound, footstepFemale_1;
 
 $(function() {
     function init () {
@@ -21,13 +21,7 @@ $(function() {
         canvasBuffer.width         =       canvasWidth;
         canvasBuffer.height        =       canvasHeight;
 
-        backgroundSound = new Howl({
-          urls: [config.howlerSounds.interface.source],
-            autoplay: config.howlerSounds.interface.autoplay,
-              loop: config.howlerSounds.interface.loop,
-              volume: config.howlerSounds.interface.volume,
-              buffer: config.howlerSounds.interface.buffer
-        });
+        soundCharging();
     }
     init();
 });
@@ -37,6 +31,7 @@ function begin(sex)
     backgroundSound.fadeOut(0,3000, function()
     {
         backgroundSound.unload();
+        var urlSound = Math.round(Math.random([config.howlerSounds.game.source])+1);
         var gameSound = new Howl({
           urls: [config.howlerSounds.game.source],
             autoplay: config.howlerSounds.game.autoplay,
@@ -58,6 +53,15 @@ function begin(sex)
     game.level.init();
     game.mist.init();
     gameloop();
-
 }
 
+function soundCharging()
+{
+    backgroundSound = new Howl({
+      urls: [config.howlerSounds.interface.source],
+        autoplay: config.howlerSounds.interface.autoplay,
+          loop: config.howlerSounds.interface.loop,
+          volume: config.howlerSounds.interface.volume,
+          buffer: config.howlerSounds.interface.buffer
+    });
+}

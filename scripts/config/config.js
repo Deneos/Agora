@@ -46,12 +46,26 @@ var config = {
 		  	'interface' : {
 			'source'   : 'medias/sons/interface/interface.mp3',
 			'autoplay' : true,
-			'loop' 	   : false,
+			'loop' 	   : true,
 			'volume'   : 1,
 			'buffer'   : true
 		  },
 		  	'game' : {
 			'source'   : 'medias/sons/game/intro.wav',
+			'autoplay' : true,
+			'loop' 	   : false,
+			'volume'   : 0,
+			'buffer'   : true
+		  },
+		  	'walkWomen' : {
+			'source'   : ['medias/sons/SFX/footstep_female_01.wav'],
+			'autoplay' : true,
+			'loop' 	   : false,
+			'volume'   : 0,
+			'buffer'   : true
+		  },
+		  	'walkMen' : {
+			'source'   : ['medias/sons/SFX/footstep_male_01.wav'],
 			'autoplay' : true,
 			'loop' 	   : false,
 			'volume'   : 0,

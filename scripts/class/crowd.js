@@ -8,22 +8,13 @@ var People = function(params)
 
 	// SON
 	this.volume = 0;
-	this.sound = new Howl({
-	  	urls: [config.howlerSounds.Agora_OST_01.source],
-	    autoplay: config.howlerSounds.Agora_OST_01.autoplay,
-		loop: config.howlerSounds.Agora_OST_01.loop,
-		volume: this.volume,
-		buffer: config.howlerSounds.Agora_OST_01.buffer
-	});
-
-	this.sound.play();
+	this.playedWalk = true;
 	//this.sound.volume();
 
 	this.priority = false;
-	this.nature = params.nature;
-	this.type   = this.nature; // Permet de savoir quel était le type de l'entité au début
+	this.nature = params.nature;	
 	this.speed  = params.speed;
-
+	this.sound = new Howl();
 	this.img	= new Image();
 	this.img2	= new Image();
 	this.img3	= new Image();
@@ -36,7 +27,6 @@ var People = function(params)
 	this.frameHeight = 500;
 	this.currentFrameX = 0;
 	this.nb_of_frame = 4;
-
 	this.sentance = params.sentance;
 	this.said = false;
 	this.width = 30;
@@ -45,6 +35,16 @@ var People = function(params)
     this.dirY = 0;
     this.alive = true;
     this.timeScale = 0;
+    this.type = this.img.src.substring(80, 59)
+  	
+	this.sound = new Howl({
+      urls: [config.howlerSounds.walkWomen.source],
+        autoplay: config.howlerSounds.walkWomen.autoplay,
+          loop: config.howlerSounds.walkWomen.loop,
+          volume: config.howlerSounds.walkWomen.volume,
+          buffer: config.howlerSounds.walkWomen.buffer
+	}
+
 
 	this.move = function()
 	{
@@ -90,14 +90,6 @@ var People = function(params)
 	{	
 
         this.imageAlpha = 1-((game.player.assurance/100));
- 
-		/*if(this.nature === "bad")
-			context.fillStyle = "red";
-	
-		if(this.nature === "neutral")
-			context.fillStyle = "blue";
-
-		context.fillRect(this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);*/
 		context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
 		context.globalAlpha = this.imageAlpha;
 		context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
@@ -162,7 +154,7 @@ var People = function(params)
 				}
 			}
 		this.alive = false;
-		this.sound.unload();
+		this.female01.unload();
 	}
 
 	this.message = function()
