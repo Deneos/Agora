@@ -76,6 +76,11 @@ var People = function(params)
 		this.timeScale++;
 		if(this.y < canvasHeight && this.timeScale%4===0)
 		{
+			if(this.nature === "withoutFaceNeutral")
+		    {
+		    	this.width+=0.5;
+				this.height+=1.5;
+		    }
 			this.width+=0.25;
 			this.height+=0.75;
 		}

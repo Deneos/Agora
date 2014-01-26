@@ -117,10 +117,18 @@ var Level = function()
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
                 if(aleaImage===4)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/evil1.png", src2 : "medias/images/evil2.png", src3 : "medias/images/evil3.png"}));
+            }     
+        }
+        if(this.decount%2===0)
+        {
+            for(var i = 0; i < game.crowd.tabPeople; i++)
+            {
+                if(game.crowd.tabPeople[i].nature === "bad")
+                {
+                    game.player.assurance -= 1;
+                    console.log("a");
+                }
             }
-
-
-            
         }
     }
 }
