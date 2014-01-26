@@ -58,7 +58,7 @@ var config = {
 			'buffer'   : true
 		  },
 		  	'walkWomen' : {
-			'source'   : ['medias/sons/SFX/footstep_female_01.wav'],
+			'source'   : 'medias/sons/SFX/footstep_female_01.wav',
 			'autoplay' : true,
 			'loop' 	   : false,
 			'volume'   : 0,

@@ -31,7 +31,6 @@ function begin(sex)
     backgroundSound.fadeOut(0,3000, function()
     {
         backgroundSound.unload();
-        var urlSound = Math.round(Math.random([config.howlerSounds.game.source])+1);
         var gameSound = new Howl({
           urls: [config.howlerSounds.game.source],
             autoplay: config.howlerSounds.game.autoplay,
@@ -53,6 +52,7 @@ function begin(sex)
     game.level.init();
     game.mist.init();
     gameloop();
+
 }
 
 function soundCharging()

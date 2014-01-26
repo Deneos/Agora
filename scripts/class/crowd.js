@@ -9,12 +9,12 @@ var People = function(params)
 	// SON
 	this.volume = 0;
 	this.playedWalk = true;
-	//this.sound.volume();
 
 	this.priority = false;
 	this.nature = params.nature;	
 	this.speed  = params.speed;
-	this.sound = new Howl();
+
+
 	this.img	= new Image();
 	this.img2	= new Image();
 	this.img3	= new Image();
@@ -35,16 +35,15 @@ var People = function(params)
     this.dirY = 0;
     this.alive = true;
     this.timeScale = 0;
-    this.type = this.img.src.substring(80, 59)
-  	
+    this.type = this.img.src.substring(80, 59);
+  	console.log(this.type);
 	this.sound = new Howl({
       urls: [config.howlerSounds.walkWomen.source],
         autoplay: config.howlerSounds.walkWomen.autoplay,
           loop: config.howlerSounds.walkWomen.loop,
           volume: config.howlerSounds.walkWomen.volume,
           buffer: config.howlerSounds.walkWomen.buffer
-	}
-
+	});
 
 	this.move = function()
 	{

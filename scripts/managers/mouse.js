@@ -74,18 +74,16 @@ function distanceSound(e)
       var minSquareY = Math.round(ennemie.y - ennemie.height/2);
       var maxSquareY = Math.round(ennemie.y + ennemie.height/2);
       var centerEnnemy = Math.round(ennemie.width/2);
-      console.log(game.crowd.tabPeople[i].playedWalk)
+
       if((minSquareX-10) < e.x && (maxSquareX+10) > e.x && (minSquareY-10) < e.y && (maxSquareY +10) > e.y
-       && game.crowd.tabPeople[i].playedWalk =! undefined)
+       && game.crowd.tabPeople[i].playedWalk != undefined)
       {
-        if(game.crowd.tabPeople[i].sound != undefined)
-          game.crowd.tabPeople[i].sound.fadeIn(1, 5000);
+        game.crowd.tabPeople[i].sound.fadeIn(1, 5000);
         game.crowd.tabPeople[i].message();
         game.crowd.tabPeople[i].playedWalk = false;
       }
       else{
-        if( game.crowd.tabPeople[i].sound != undefined)
-        game.crowd.tabPeople[i].sound.fadeOut(0, 5000, function(){
+          game.crowd.tabPeople[i].sound.fadeOut(0, 5000, function(){
           game.crowd.tabPeople[i].playedWalk = true;
         });
       }
