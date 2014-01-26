@@ -45,156 +45,90 @@ var People = function(params)
           volume: config.howlerSounds.walkWomen.volume,
           buffer: config.howlerSounds.walkWomen.buffer
 	});
+}
+People.prototype.move = function()
+{
+	var diffX = (this.x - this.end);
+    var diffY = (this.y - canvasHeight);
+    var distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
+    var moveX = distance > this.speed ? (Math.abs(diffX) * (this.speed / distance)) : Math.abs(diffX);
+    var moveY = distance > this.speed ? (Math.abs(diffY) * (this.speed / distance)) : Math.abs(diffY);
 
-	this.move = function()
+    if(this.x < this.end)
+        this.dirX = 1;
+    else
+        this.dirX = -1;
+    if(this.y < canvasHeight)
+        this.dirY = 1;
+    else
+        this.dirY = -1;
+    this.y = (this.y + (this.dirY * moveY));
+    this.x = (this.x + (this.dirX * moveX));
+
+	//when an ennemi finish is path
+	if(this.y >= canvasHeight)
 	{
-		var diffX = (this.x - this.end);
-        var diffY = (this.y - canvasHeight);
-        var distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
-        var moveX = distance > this.speed ? (Math.abs(diffX) * (this.speed / distance)) : Math.abs(diffX);
-        var moveY = distance > this.speed ? (Math.abs(diffY) * (this.speed / distance)) : Math.abs(diffY);
-
-        if(this.x < this.end)
-            this.dirX = 1;
-        else
-            this.dirX = -1;
-        if(this.y < canvasHeight)
-            this.dirY = 1;
-        else
-            this.dirY = -1;
-        this.y = (this.y + (this.dirY * moveY));
-        this.x = (this.x + (this.dirX * moveX));
-
-		//when an ennemi finish is path
-		if(this.y >= canvasHeight)
-		{
-			this.attack();
-			game.crowd.slot[this.slotID].occupated = false;
-		}
+		this.attack();
+		game.crowd.slot[this.slotID].occupated = false;
 	}
-	this.scale = function()
+}
+People.prototype.scale = function()
+{
+	this.timeScale++;
+	if(this.y < canvasHeight && this.timeScale%4===0)
 	{
-		this.timeScale++;
-		if(this.y < canvasHeight && this.timeScale%4===0)
-		{
-			if(this.nature === "withoutFaceNeutral")
-		    {
-		    	this.width+=0.5;
-				this.height+=1.5;
-		    }
-			this.width+=0.25;
-			this.height+=0.75;
-		}
+		if(this.nature === "withoutFaceNeutral")
+	    {
+	    	this.width+=0.5;
+			this.height+=1.5;
+	    }
+		this.width+=0.25;
+		this.height+=0.75;
 	}
-	this.render = function()
-	{	
-		
-        if(this.nature === "nice")
-        {
-        	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
-        }
-        if(this.nature === "withoutFaceNeutral")
-        {
-        	context.drawImage(this.img3,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
-        }
-        if(this.nature === "neutral" || this.nature === "bad")
-        {
-        	this.imageAlpha = 1-((game.player.assurance/100));
-        	context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
-        	context.globalAlpha = this.imageAlpha;
-        	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
-        	context.globalAlpha = 1;
-        }
-
-	}
-	this.animate = function ()
+}
+People.prototype.render = function()
+{	
+	
+    if(this.nature === "nice")
     {
-        //the f is time frame, to fluidify the animation
-        this.f++;
-        if(this.f%12==0)
+    	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+    }
+    if(this.nature === "withoutFaceNeutral")
+    {
+    	context.drawImage(this.img3,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+    }
+    if(this.nature === "neutral" || this.nature === "bad")
+    {
+    	this.imageAlpha = 1-((game.player.assurance/100));
+    	context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+    	context.globalAlpha = this.imageAlpha;
+    	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+    	context.globalAlpha = 1;
+    }
+
+}
+People.prototype.animate = function ()
+{
+    //the f is time frame, to fluidify the animation
+    this.f++;
+    if(this.f%12==0)
+    {
+        this.currentFrameX+=this.frameWidth;
+        if(this.currentFrameX>=(this.nb_of_frame*this.frameWidth))
         {
-            this.currentFrameX+=this.frameWidth;
-            if(this.currentFrameX>=(this.nb_of_frame*this.frameWidth))
-            {
-                this.currentFrameX = 0;
-            }
+            this.currentFrameX = 0;
         }
     }
-    //quand un ennemi arrive en bas 
-	this.attack = function()
-	{	
-			if(this.nature === "bad")
-			{	
-				game.player.assurance+=5;
-				game.crowd.nb_of_bad--;
+}
+//quand un ennemi arrive en bas 
+People.prototype.attack = function()
+{	
+		if(this.nature === "bad")
+		{	
+			game.player.assurance+=5;
+			game.crowd.nb_of_bad--;
 
-				if(!this.said){
-					if(game.player.gender === "male")
-					{	
-						var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
-						this.sentances = config.male.bad.sentences[aleaPhrase];
-					}
-					if(game.player.gender === "female")
-					{	
-						var aleaPhrase = Math.floor(Math.random()*config.female.bad.sentences.length);
-						this.sentances = config.female.bad.sentences[aleaPhrase];
-					}
-
-					var t = new TextEffect(this.x,this.y-20,"#DE0F0F",this.sentances);
-					game.effect.push(t);
-					this.said = true;
-				}
-			}
-			if(this.nature === "withoutFaceNeutral" || this.nature === "neutral")
-			{	
-				game.crowd.nb_of_bad--;
-			}
-			if(this.nature === "nice")
-			{	
-				game.player.assurance-=5;
-				game.crowd.nb_of_nice--;
-				if(!this.said){
-					if(game.player.gender === "male")
-					{	
-						var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
-						this.sentances = config.male.good.sentences[aleaPhrase];
-					}
-					if(game.player.gender === "female")
-					{	
-						var aleaPhrase = Math.floor(Math.random()*config.female.good.sentences.length);
-						this.sentances = config.female.good.sentences[aleaPhrase];
-					}
-
-					var t = new TextEffect(this.x,this.y-20,"#F4BE49",this.sentances);
-					game.effect.push(t);
-					this.said = true;
-				}
-			}
-		this.alive = false;
-		this.sound.unload();
-	}
-	this.cliked = function()
-	{	
-			if(this.nature === "withoutFaceNeutral")
-			{	
-				//game.player.assurance-=5;
-				this.speed = 1;
-
-			}
-			if(this.nature === "neutral" || this.nature === "nice" && this.niceClick === false)
-			{	
-				game.player.assurance-=5;
-				this.niceClick = true;
-			}
-		this.sound.unload();
-	}
-
-	this.message = function()
-	{		
-		if(!this.said){
-			if(this.nature === "bad")
-			{
-				//game.player.assurance += 5;
+			if(!this.said){
 				if(game.player.gender === "male")
 				{	
 					var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
@@ -210,9 +144,16 @@ var People = function(params)
 				game.effect.push(t);
 				this.said = true;
 			}
-			if(this.nature === "neutral")
-			{	
-				
+		}
+		if(this.nature === "withoutFaceNeutral" || this.nature === "neutral")
+		{	
+			game.crowd.nb_of_bad--;
+		}
+		if(this.nature === "nice")
+		{	
+			game.player.assurance-=5;
+			game.crowd.nb_of_nice--;
+			if(!this.said){
 				if(game.player.gender === "male")
 				{	
 					var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
@@ -226,12 +167,69 @@ var People = function(params)
 
 				var t = new TextEffect(this.x,this.y-20,"#F4BE49",this.sentances);
 				game.effect.push(t);
-				this.said = true;	
+				this.said = true;
 			}
+		}
+	this.alive = false;
+	this.sound.unload();
+}
+People.prototype.cliked = function()
+{	
+		if(this.nature === "withoutFaceNeutral")
+		{	
+			//game.player.assurance-=5;
+			this.speed = 1;
+
+		}
+		if(this.nature === "neutral" || this.nature === "nice" && this.niceClick === false)
+		{	
+			game.player.assurance-=5;
+			this.niceClick = true;
+		}
+	this.sound.unload();
+}
+
+People.prototype.message = function()
+{		
+	if(!this.said){
+		if(this.nature === "bad")
+		{
+			//game.player.assurance += 5;
+			if(game.player.gender === "male")
+			{	
+				var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
+				this.sentances = config.male.bad.sentences[aleaPhrase];
+			}
+			if(game.player.gender === "female")
+			{	
+				var aleaPhrase = Math.floor(Math.random()*config.female.bad.sentences.length);
+				this.sentances = config.female.bad.sentences[aleaPhrase];
+			}
+
+			var t = new TextEffect(this.x,this.y-20,"#DE0F0F",this.sentances);
+			game.effect.push(t);
+			this.said = true;
+		}
+		if(this.nature === "neutral")
+		{	
+			
+			if(game.player.gender === "male")
+			{	
+				var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
+				this.sentances = config.male.good.sentences[aleaPhrase];
+			}
+			if(game.player.gender === "female")
+			{	
+				var aleaPhrase = Math.floor(Math.random()*config.female.good.sentences.length);
+				this.sentances = config.female.good.sentences[aleaPhrase];
+			}
+
+			var t = new TextEffect(this.x,this.y-20,"#F4BE49",this.sentances);
+			game.effect.push(t);
+			this.said = true;	
 		}
 	}
 }
-
 var Crowd = function()
 {
 	this.tabPeople = [];
