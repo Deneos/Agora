@@ -18,6 +18,7 @@ function gameloop()
         context.clearRect(0,0,canvasWidth,canvasHeight);
         shootEnnemy();
         mouseClick = false;
+        soundAmbiance();
         game.update();
         game.render();
     }

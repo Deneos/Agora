@@ -53,7 +53,7 @@ var config = {
 		  	'game' : {
 			'source'   : 'medias/sons/game/intro.wav',
 			'autoplay' : true,
-			'loop' 	   : false,
+			'loop' 	   : true,
 			'volume'   : 0,
 			'buffer'   : true
 		  },
@@ -70,7 +70,42 @@ var config = {
 			'loop' 	   : false,
 			'volume'   : 0,
 			'buffer'   : true
-		  }
+		  },
+		  	'badAmbianceSound' : {
+			'source'   : ['medias/sons/game/brume_epaisse.mp3'],
+			'autoplay' : false,
+			'loop' 	   : true,
+			'volume'   : 1,
+			'buffer'   : true
+		  },
+		  	'middleAmbianceSound' : {
+			'source'   : ['medias/sons/game/brume_moyenne.wav'],
+			'autoplay' : false,
+			'loop' 	   : true,
+			'volume'   : 1,
+			'buffer'   : true
+		  },
+		  	'slowAmbianceSound' : {
+			'source'   : ['medias/sons/game/brume_legere.wav'],
+			'autoplay' : false,
+			'loop' 	   : true,
+			'volume'   : 1,
+			'buffer'   : true
+		  },
+		  'hearthbeath' : {
+			'source'   : ['medias/sons/SFX/hearthbeat_middle.wav'],
+			'autoplay' : false,
+			'loop' 	   : true,
+			'volume'   : 1,
+			'buffer'   : true
+		  },
+	    	'hearthbeatHard' : {
+			'source'   : ['medias/sons/SFX/hearthbeat_fast.wav'],
+			'autoplay' : false,
+			'loop' 	   : true,
+			'volume'   : 1,
+			'buffer'   : true
+	 	}
 		},
 	'son' : {
 		'fond' : {}
