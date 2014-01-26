@@ -72,6 +72,8 @@ function distanceSound(e)
       if(distance < limitDistance){
         var valueVolume = (limitDistance - distance ) / 30;
         game.crowd.tabPeople[i].sound.volume(valueVolume);
+
+        game.crowd.tabPeople[i].message();
       }
       else{
           var valueVolume = 0;

@@ -115,52 +115,94 @@ var People = function(params)
         }
     }
 	this.attack = function()
-	{
-		if(this.nature === "withoutFaceNeutral")
-		{	
-			game.player.assurance+=5;
-			game.crowd.nb_of_bad--;
-			if(game.player.gender === "male" && this.said == false)
+	{	
+			if(this.nature === "bad")
 			{	
-				var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
-				this.sentances = config.male.bad.sentences[aleaPhrase];
-			}
-			if(game.player.gender === "female" && this.said == false)
-			{	
-				var aleaPhrase = Math.floor(Math.random()*config.female.bad.sentences.length);
-				this.sentances = config.female.bad.sentences[aleaPhrase];
-			}
+				game.player.assurance+=5;
+				game.crowd.nb_of_bad--;
 
-			if(this.said == false)
+				if(!this.said){
+					if(game.player.gender === "male")
+					{	
+						var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
+						this.sentances = config.male.bad.sentences[aleaPhrase];
+					}
+					if(game.player.gender === "female")
+					{	
+						var aleaPhrase = Math.floor(Math.random()*config.female.bad.sentences.length);
+						this.sentances = config.female.bad.sentences[aleaPhrase];
+					}
+
+					var t = new TextEffect(this.x,this.y-20,"#DE0F0F",this.sentances);
+					game.effect.push(t);
+					this.said = true;
+				}
+			}
+			if(this.nature === "neutral")
 			{	
+				game.player.assurance-=5;
+				game.crowd.nb_of_nice--;
+				if(!this.said){
+					if(game.player.gender === "male")
+					{	
+						var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
+						this.sentances = config.male.good.sentences[aleaPhrase];
+					}
+					if(game.player.gender === "female")
+					{	
+						var aleaPhrase = Math.floor(Math.random()*config.female.good.sentences.length);
+						this.sentances = config.female.good.sentences[aleaPhrase];
+					}
+
+					var t = new TextEffect(this.x,this.y-20,"#F4BE49",this.sentances);
+					game.effect.push(t);
+					this.said = true;
+				}
+			}
+		this.alive = false;
+		this.sound.unload();
+	}
+
+	this.message = function()
+	{		
+		if(!this.said){
+			if(this.nature === "bad")
+			{
+				game.player.assurance += 5;
+				if(game.player.gender === "male")
+				{	
+					var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
+					this.sentances = config.male.bad.sentences[aleaPhrase];
+				}
+				if(game.player.gender === "female")
+				{	
+					var aleaPhrase = Math.floor(Math.random()*config.female.bad.sentences.length);
+					this.sentances = config.female.bad.sentences[aleaPhrase];
+				}
+
 				var t = new TextEffect(this.x,this.y-20,"#DE0F0F",this.sentances);
 				game.effect.push(t);
 				this.said = true;
 			}
-		}
-		if(this.nature === "nice")
-		{	
-			game.player.assurance-=5;
-			game.crowd.nb_of_nice--;
-			if(game.player.gender === "male" && this.said == false)
+			if(this.nature === "neutral")
 			{	
-				var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
-				this.sentances = config.male.good.sentences[aleaPhrase];
-			}
-			if(game.player.gender === "female" && this.said == false)
-			{	
-				var aleaPhrase = Math.floor(Math.random()*config.female.good.sentences.length);
-				this.sentances = config.female.good.sentences[aleaPhrase];
-			}
-			if(this.said == false)
-			{
+				game.player.assurance-=5;
+				if(game.player.gender === "male")
+				{	
+					var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
+					this.sentances = config.male.good.sentences[aleaPhrase];
+				}
+				if(game.player.gender === "female")
+				{	
+					var aleaPhrase = Math.floor(Math.random()*config.female.good.sentences.length);
+					this.sentances = config.female.good.sentences[aleaPhrase];
+				}
+
 				var t = new TextEffect(this.x,this.y-20,"#F4BE49",this.sentances);
 				game.effect.push(t);
-				this.said = true;
+				this.said = true;	
 			}
 		}
-		this.alive = false;	
-		this.sound.unload();
 	}
 }
 
