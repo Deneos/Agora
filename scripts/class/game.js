@@ -53,6 +53,7 @@ var End = function(image)
     this.img = new Image();
     this.img.src = image;
     this.opacity = 0;
+    $("#menu").fadeIn(2500);
 
     this.draw = function()
     {
@@ -60,6 +61,6 @@ var End = function(image)
         context.drawImage(this.img,0,0);
         context.globalAlpha = 1;
         if(this.opacity<1)
-            this.opacity += 0.005;
+            this.opacity += 0.0005;
     }
 }
