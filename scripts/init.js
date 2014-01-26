@@ -6,6 +6,7 @@ var posMouse = {
     x : 0,
     y : 0
 }
+var backgroundSound;
 
 $(function() {
     function init () {
@@ -19,12 +20,33 @@ $(function() {
         contextBuffer              =       canvasBuffer.getContext('2d');
         canvasBuffer.width         =       canvasWidth;
         canvasBuffer.height        =       canvasHeight;
-        
+
+        backgroundSound = new Howl({
+          urls: [config.howlerSounds.interface.source],
+            autoplay: config.howlerSounds.interface.autoplay,
+              loop: config.howlerSounds.interface.loop,
+              volume: config.howlerSounds.interface.volume,
+              buffer: config.howlerSounds.interface.buffer
+        });
     }
     init();
 });
+
 function begin(sex)
-{
+{      
+    backgroundSound.fadeOut(0,3000, function()
+    {
+        backgroundSound.unload();
+        var gameSound = new Howl({
+          urls: [config.howlerSounds.game.source],
+            autoplay: config.howlerSounds.game.autoplay,
+              loop: config.howlerSounds.game.loop,
+              volume: config.howlerSounds.game.volume,
+              buffer: config.howlerSounds.game.buffer
+        });
+        gameSound.fadeIn(1, 2000);
+    });
+
     hideHUD();
     game                       =       new Game(sex);
 

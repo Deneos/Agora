@@ -41,12 +41,23 @@ var config = {
 			'autoplay' : false,
 			'loop' 	   : true,
 			'volume'   : 1,
-			'buffer'   : true,
-			onend: function() {
-		    	console.log("Sound Finished !");
+			'buffer'   : true
 		  },
-		}
-	},
+		  	'interface' : {
+			'source'   : 'medias/sons/interface/interface.mp3',
+			'autoplay' : true,
+			'loop' 	   : false,
+			'volume'   : 1,
+			'buffer'   : true
+		  },
+		  	'game' : {
+			'source'   : 'medias/sons/game/intro.wav',
+			'autoplay' : true,
+			'loop' 	   : false,
+			'volume'   : 0,
+			'buffer'   : true
+		  }
+		},
 	'son' : {
 		'fond' : {}
 	}
