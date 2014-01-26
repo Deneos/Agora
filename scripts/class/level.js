@@ -46,13 +46,15 @@ var Level = function()
                     game.crowd.nb_of_nice++;
                 }
                 //image selection
-                var aleaImage = Math.round(Math.random()*3);
+                var aleaImage = Math.round(Math.random()*4);
                 if(aleaImage===0)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
                 if(aleaImage===1)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
                 if(aleaImage===2)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
+                if(aleaImage===3)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png"}));
 
 
             }
@@ -73,13 +75,15 @@ var Level = function()
                     game.crowd.nb_of_nice++;
                 }
                 //image selection
-                var aleaImage = Math.round(Math.random()*3);
+                var aleaImage = Math.round(Math.random()*4);
                 if(aleaImage===0)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png", src3 : "medias/images/nice3.png" }));
                 if(aleaImage===1)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png", src3 : "medias/images/gentils3.png"}));
                 if(aleaImage===2)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png", src3 : "medias/images/mechant3.png"}));
+                if(aleaImage===3)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
             }
 
             //mal
@@ -98,13 +102,15 @@ var Level = function()
                     game.crowd.nb_of_bad++;
                 }
                 //image selection
-                var aleaImage = Math.round(Math.random()*3);
+                var aleaImage = Math.round(Math.random()*4);
                 if(aleaImage===0)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png", src3 : "medias/images/nice3.png" }));
                 if(aleaImage===1)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png", src3 : "medias/images/gentils3.png"}));
                 if(aleaImage===2)
-                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png", src3 : "medias/images/mechant3.png"}));
+                if(aleaImage===3)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
             }
 
 

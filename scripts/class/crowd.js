@@ -26,8 +26,10 @@ var People = function(params)
 
 	this.img	= new Image();
 	this.img2	= new Image();
+	this.img3	= new Image();
 	this.img.src = params.src;
 	this.img2.src = params.src2;
+	this.img3.src = params.src3;
 	this.imageAlpha = 0.5;
 	this.f = 0;
 	this.frameWidth = 150;
