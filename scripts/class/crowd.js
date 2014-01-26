@@ -19,6 +19,7 @@ var People = function(params)
 	this.sound.play();
 	//this.sound.volume();
 
+	this.priority = false;
 	this.nature = params.nature;
 	this.type   = this.nature; // Permet de savoir quel était le type de l'entité au début
 	this.speed  = params.speed;

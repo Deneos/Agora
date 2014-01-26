@@ -31,12 +31,12 @@ var mouseManager = {
  }
 }
 
+var ennemieY = [];
 function shootEnnemy()
 {
     for(var i = 0; i < game.crowd.tabPeople.length; i++)
     {
       var ennemie = game.crowd.tabPeople[i];
-      var ennemieY = [];
 
       var minSquareX = Math.round(ennemie.x - ennemie.width/2);
       var maxSquareX = Math.round(ennemie.x + ennemie.width/2);
@@ -44,19 +44,23 @@ function shootEnnemy()
       var maxSquareY = Math.round(ennemie.y + ennemie.height/2);
 
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
-        && maxSquareY > posMouse.y && mouseClick)
-        { 
-          
-           if(ennemie.nature === "neutral"){
-              ennemie.nature = "nice"; 
-              ennemie.attack();
-            }
+        && maxSquareY > posMouse.y && mouseClick && !ennemie.priority)
+          console.log()
+          ennemie.priority = true;
+        
+           if(ennemie.priority){
+             if(ennemie.nature === "neutral"){
+                ennemie.nature = "nice"; 
+                ennemie.attack();
+                return;
+              }
 
-            if(ennemie.nature === "bad"){
-              ennemie.nature = "withoutFaceNeutral"; 
-              ennemie.attack();
-            }
-        }
+              if(ennemie.nature === "bad"){
+                ennemie.nature = "withoutFaceNeutral"; 
+                ennemie.attack();
+                return;
+              }
+          }
     }
 }
 
