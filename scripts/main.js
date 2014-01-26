@@ -21,5 +21,9 @@ function gameloop()
         game.update();
         game.render();
     }
+    if(game!=null && game.end!=null)
+    {
+        game.end.draw();
+    }
     requestAnimationFrame(gameloop);
 }
