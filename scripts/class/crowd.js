@@ -159,7 +159,7 @@ var People = function(params)
 				}
 			}
 		this.alive = false;
-		this.female01.unload();
+		this.sound.unload();
 	}
 	this.cliked = function()
 	{	
