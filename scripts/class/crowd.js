@@ -109,6 +109,7 @@ var People = function(params)
             }
         }
     }
+    //quand un ennemi arrive en bas 
 	this.attack = function()
 	{	
 			if(this.nature === "bad")
@@ -133,11 +134,11 @@ var People = function(params)
 					this.said = true;
 				}
 			}
-			if(this.nature === "withoutFaceNeutral")
+			if(this.nature === "withoutFaceNeutral" || this.nature === "neutral")
 			{	
 				game.crowd.nb_of_bad--;
 			}
-			if(this.nature === "neutral" || this.nature === "nice")
+			if(this.nature === "nice")
 			{	
 				game.player.assurance-=5;
 				game.crowd.nb_of_nice--;
@@ -165,7 +166,7 @@ var People = function(params)
 	{	
 			if(this.nature === "withoutFaceNeutral")
 			{	
-				game.player.assurance-=5;
+				//game.player.assurance-=5;
 				this.speed = 1;
 
 			}
