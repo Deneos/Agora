@@ -19,20 +19,16 @@ $(function() {
         contextBuffer              =       canvasBuffer.getContext('2d');
         canvasBuffer.width         =       canvasWidth;
         canvasBuffer.height        =       canvasHeight;
-
-        /*var background = new Image();
-        background.src = "medias/images/femme1.png";
-        context.drawImage(background,0,0);*/
+        game                       =       new Game();
         
-        
-        var params = {
-           url      : config.howlerSounds.Agora_OST_01.source,
-           autoplay : config.howlerSounds.Agora_OST_01.autoplay,
-           loop     : config.howlerSounds.Agora_OST_01.loop,
-           volume   : config.howlerSounds.Agora_OST_01.volume,
-           buffer   : config.howlerSounds.Agora_OST_01.buffer
-        };
-        soundManager(params);
+        canvas.addEventListener('mousemove', mouseManager.eMousemove, false);
+        canvas.addEventListener('mouseup',   mouseManager.eMouseUp, false);
+        canvas.addEventListener('mousedown', mouseManager.eMouseDown, false);
+        canvas.addEventListener('click',     mouseManager.eOnclick, false);
+        game.level                 =       new Level();
+        game.level.init();
+        game.mist.init();
+        gameloop();
     }
     init();
 });

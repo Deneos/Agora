@@ -40,7 +40,7 @@ var config = {
 			'source'   : 'medias/sons/Agora_OST_01.mp3',
 			'autoplay' : false,
 			'loop' 	   : true,
-			'volume'   : 0.5,
+			'volume'   : 1,
 			'buffer'   : true,
 			onend: function() {
 		    	console.log("Sound Finished !");

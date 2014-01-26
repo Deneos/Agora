@@ -6,6 +6,19 @@ var People = function(params)
 	this.end = params.slot.end;
 	this.end = params.slot.end;
 
+	// SON
+	this.volume = 0;
+	this.sound = new Howl({
+	  	urls: [config.howlerSounds.Agora_OST_01.source],
+	    autoplay: config.howlerSounds.Agora_OST_01.autoplay,
+		loop: config.howlerSounds.Agora_OST_01.loop,
+		volume: this.volume,
+		buffer: config.howlerSounds.Agora_OST_01.buffer
+	});
+
+	this.sound.play();
+	//this.sound.volume();
+
 	this.nature = params.nature;
 	this.type   = this.nature; // Permet de savoir quel était le type de l'entité au début
 	this.speed  = params.speed;
@@ -23,8 +36,6 @@ var People = function(params)
 
 	this.sentance = params.sentance;
 	this.said = false;
-	this.sound = params.sound;
-
 	this.width = 30;
 	this.height = 100;
 	this.dirX = 0;
@@ -218,6 +229,11 @@ var Crowd = function()
 			this.tabPeople[i].animate();
 			this.tabPeople[i].render();
 		}
+	}
+
+	this.emitSound = function()
+	{
+
 	}
 
 	this.update = function()
