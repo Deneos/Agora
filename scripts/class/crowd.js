@@ -80,11 +80,6 @@ var People = function(params)
 			this.width+=0.25;
 			this.height+=0.75;
 		}
-
-		if(this.y >= canvasHeight)
-		{
-			this.attack();
-		}
 	}
 	this.render = function()
 	{	
@@ -139,8 +134,10 @@ var People = function(params)
 				}
 			}
 			if(this.nature === "withoutFaceNeutral")
+			{	
 				game.crowd.nb_of_bad--;
-			if(this.nature === "neutral")
+			}
+			if(this.nature === "neutral" || this.nature === "nice")
 			{	
 				game.player.assurance-=5;
 				game.crowd.nb_of_nice--;
