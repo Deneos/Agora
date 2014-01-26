@@ -42,6 +42,14 @@ function shootEnnemy()
       var minSquareY = Math.round(ennemie.y - ennemie.height/2);
       var maxSquareY = Math.round(ennemie.y + ennemie.height/2);
 
+      var toto = 500000;
+      // 600
+      // 500
+      //550
+      if(indexOf(ennemie) < toto)
+      {
+        var toto = indexOf(ennemie);
+      }
         if(minSquareX < posMouse.x && maxSquareX > posMouse.x && minSquareY < posMouse.y 
         && maxSquareY > posMouse.y && mouseClick)
         { 
@@ -60,12 +68,12 @@ function shootEnnemy()
 
 function distanceSound(e)
 {   
-  var limitDistance = 10;
+  var limitDistance = 30;
     for(var i = 0; i < game.crowd.tabPeople.length; i++)
     {
       var distance = Math.round(Math.sqrt(Math.pow(game.crowd.tabPeople[i].x-e.x , 2) + Math.pow(game.crowd.tabPeople[i].y-e.y , 2)));
       if(distance < limitDistance){
-        var valueVolume = (limitDistance - distance ) / 10;
+        var valueVolume = (limitDistance - distance ) / 30;
         game.crowd.tabPeople[i].sound.volume(valueVolume);
       }
       else{
