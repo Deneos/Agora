@@ -35,6 +35,7 @@ var People = function(params)
     this.dirY = 0;
     this.alive = true;
     this.timeScale = 0;
+    this.niceClick = false;
     this.type = this.img.src.substring(80, 59);
   	console.log(this.type);
 	this.sound = new Howl({
@@ -76,17 +77,27 @@ var People = function(params)
 		this.timeScale++;
 		if(this.y < canvasHeight && this.timeScale%4===0)
 		{
+			if(this.nature === "withoutFaceNeutral")
+		    {
+		    	this.width+=0.5;
+				this.height+=1.5;
+		    }
 			this.width+=0.25;
 			this.height+=0.75;
 		}
 	}
 	this.render = function()
 	{	
-		if(this.nature === "withoutFaceNeutral")
+		
+        if(this.nature === "nice")
+        {
+        	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+        }
+        if(this.nature === "withoutFaceNeutral")
         {
         	context.drawImage(this.img3,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
         }
-        else
+        if(this.nature === "neutral" || this.nature === "bad")
         {
         	this.imageAlpha = 1-((game.player.assurance/100));
         	context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
@@ -94,6 +105,7 @@ var People = function(params)
         	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
         	context.globalAlpha = 1;
         }
+
 	}
 	this.animate = function ()
     {
@@ -169,8 +181,10 @@ var People = function(params)
 				this.speed = 1;
 
 			}
-			if(this.nature === "neutral")
+			if(this.nature === "neutral" || this.nature === "nice" && this.niceClick === false)
 			{	
+				game.player.assurance-=5;
+				this.niceClick = true;
 			}
 		this.sound.unload();
 	}
@@ -180,7 +194,7 @@ var People = function(params)
 		if(!this.said){
 			if(this.nature === "bad")
 			{
-				game.player.assurance += 5;
+				//game.player.assurance += 5;
 				if(game.player.gender === "male")
 				{	
 					var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
@@ -198,7 +212,7 @@ var People = function(params)
 			}
 			if(this.nature === "neutral")
 			{	
-				game.player.assurance-=5;
+				
 				if(game.player.gender === "male")
 				{	
 					var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);

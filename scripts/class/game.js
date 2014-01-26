@@ -5,7 +5,7 @@ var Game = function(sex)
     this.crowd = new Crowd();
     this.mist = new Mist();
     this.pause = false;
-    this.end = false;
+    this.end = null;
 
     this.effect = [];
 
@@ -16,16 +16,18 @@ var Game = function(sex)
         this.level.motor();
         this.player.update();
         //perdu
-        if(this.player.assurance<=0)
+        if(this.player.assurance<=0 && this.end == null)
         {
             this.effect = [];
             this.pause = true;
+            this.end = new End("medias/images/Good_game.png");
         }
         //gagne
-        if(this.player.assurance>=100)
+        if(this.player.assurance>=100 && this.end == null)
         {
             this.effect = [];
             this.pause = true;
+            this.end = new End("medias/images/game-over.png");
         }
 
     }
@@ -46,3 +48,19 @@ var Game = function(sex)
     return this;
 }
 
+var End = function(image)
+{
+    this.img = new Image();
+    this.img.src = image;
+    this.opacity = 0;
+    $("#menu").fadeIn(2500);
+
+    this.draw = function()
+    {
+        context.globalAlpha = this.opacity;
+        context.drawImage(this.img,0,0);
+        context.globalAlpha = 1;
+        if(this.opacity<1)
+            this.opacity += 0.0005;
+    }
+}

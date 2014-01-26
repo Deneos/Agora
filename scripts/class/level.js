@@ -28,6 +28,18 @@ var Level = function()
     this.motor = function()
     {
         this.decount++;
+        if(this.decount%50===0)
+        {
+            
+            for(var i = 0; i < game.crowd.tabPeople.length; i++)
+            {
+                if(game.crowd.tabPeople[i].nature === "bad")
+                {
+                    game.player.assurance += 1;
+                    
+                }
+            }
+        }
         if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 12)
         {   
             //neutre
@@ -117,10 +129,8 @@ var Level = function()
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mixte1.png", src2 : "medias/images/mixte2.png", src3 : "medias/images/mixte3.png"}));
                 if(aleaImage===4)
                     game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/evil1.png", src2 : "medias/images/evil2.png", src3 : "medias/images/evil3.png"}));
-            }
-
-
-            
+            }     
         }
+
     }
 }

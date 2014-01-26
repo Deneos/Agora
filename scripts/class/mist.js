@@ -4,16 +4,19 @@ var Mist = function()
     this.background1 = new Image();
     this.background2 = new Image();
 
+    this.mistimg = new Image();
+    this.mistimg.src = "medias/images/brouillard.png";
+
     
     this.init = function()
     {
-        var grd = contextBuffer.createRadialGradient(canvasWidth/2,canvasHeight/2,5,90,60,canvasWidth);
+        /*var grd = contextBuffer.createRadialGradient(canvasWidth/2,canvasHeight/2,5,90,60,canvasWidth);
         grd.addColorStop(0,"#7a7a5f");
         grd.addColorStop(1,"#bbbbc7");
 
         // Fill with gradient
         contextBuffer.fillStyle=grd;
-        contextBuffer.fillRect(0,0,canvasWidth,canvasHeight);
+        contextBuffer.fillRect(0,0,canvasWidth,canvasHeight);*/
 
         this.image1alpha = 0;
         this.image2alpha = 0;
@@ -54,7 +57,8 @@ var Mist = function()
     this.render = function()
     {       
         context.globalAlpha = game.player.assurance/100;
-        context.drawImage(canvasBuffer,0,0);
+        //context.drawImage(canvasBuffer,0,0);
+        context.drawImage(this.mistimg,0,0);
         context.globalAlpha = 1;
         context.font = '28px "neuropol"';
         context.fillText(game.player.assurance, 100, 50);
