@@ -56,10 +56,10 @@ var Mist = function()
         context.globalAlpha = game.player.assurance/100;
         context.drawImage(canvasBuffer,0,0);
         context.globalAlpha = 1;
-        /*context.font = '28px "neuropol"';
+        context.font = '28px "neuropol"';
         context.fillText(game.player.assurance, 100, 50);
-        context.strokeText(game.player.assurance, 100, 50);*/
-       // context.fillStyle = "rgba(175,170,240,"+(game.player.assurance/100)+")";
+        context.strokeText(game.player.assurance, 100, 50);
+       //context.fillStyle = "rgba(175,170,240,"+(game.player.assurance/100)+")";
        // context.fillRect(0,0,canvasWidth,canvasHeight);
     }
 }

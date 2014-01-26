@@ -5,7 +5,7 @@ var config = {
 				"Such a pretty face.", "Look at me.", "What a smile!",
 				"Hey, handsome.", "Pretty flower for a white guy.", "Wanna come along?",
 				"I'd like to grab that ass.", "Let me slap you.", "How can poop go outta this?",
-				"I like his fine lines.", "Am i bisexual?", "Et on se prend la main...",
+				"I like his fine lines.", "Am I bisexual?", "Et on se prend la main...",
 				"I can see the sun on his head.", "No hair can be cool, finally.", "The skin should be soft." ]
 		},
 		'bad'  : {

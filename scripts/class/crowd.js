@@ -121,18 +121,18 @@ var People = function(params)
 			game.crowd.nb_of_bad--;
 			if(game.player.gender === "male" && this.said == false)
 			{	
-				var aleaPhrase = Math.round(Math.random()*config.male.bad.sentences.length);
+				var aleaPhrase = Math.floor(Math.random()*config.male.bad.sentences.length);
 				this.sentances = config.male.bad.sentences[aleaPhrase];
 			}
 			if(game.player.gender === "female" && this.said == false)
 			{	
-				var aleaPhrase = Math.round(Math.random()*config.female.bad.sentences.length);
-				this.sentances = config.male.bad.sentences[aleaPhrase];
+				var aleaPhrase = Math.floor(Math.random()*config.female.bad.sentences.length);
+				this.sentances = config.female.bad.sentences[aleaPhrase];
 			}
 
 			if(this.said == false)
 			{	
-				var t = new TextEffect(this.x,this.y-20,this.sentances);
+				var t = new TextEffect(this.x,this.y-20,"#DE0F0F",this.sentances);
 				game.effect.push(t);
 				this.said = true;
 			}
@@ -143,17 +143,17 @@ var People = function(params)
 			game.crowd.nb_of_nice--;
 			if(game.player.gender === "male" && this.said == false)
 			{	
-				var aleaPhrase = Math.round(Math.random()*config.male.good.sentences.length);
-				this.sentances = config.male.bad.sentences[aleaPhrase];
+				var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
+				this.sentances = config.male.good.sentences[aleaPhrase];
 			}
 			if(game.player.gender === "female" && this.said == false)
 			{	
-				var aleaPhrase = Math.round(Math.random()*config.female.good.sentences.length);
-				this.sentances = config.male.bad.sentences[aleaPhrase];
+				var aleaPhrase = Math.floor(Math.random()*config.female.good.sentences.length);
+				this.sentances = config.female.good.sentences[aleaPhrase];
 			}
 			if(this.said == false)
 			{
-				var t = new TextEffect(this.x,this.y-20,this.sentances);
+				var t = new TextEffect(this.x,this.y-20,"#F4BE49",this.sentances);
 				game.effect.push(t);
 				this.said = true;
 			}

@@ -37,10 +37,11 @@ function playButton()
     $("#male").fadeIn();
     $("#female").fadeIn();
 }
-var TextEffect = function(x,y,value)
+var TextEffect = function(x,y,color,value)
 {
     this.x = x;
     this.y = y;
+    this.color = color;
     this.value = value;
     this.speed = 1;
     this.alive = true;
@@ -61,7 +62,7 @@ var TextEffect = function(x,y,value)
         context.font = '24px "neuropol"';
         context.lineWidth = 2;
         //context.strokeStyle = "#43618F";
-        context.fillStyle = "#F4BE49";
+        context.fillStyle = this.color;
         context.globalAlpha = this.clicOpacity;
         context.fillText(this.value, this.x, this.y);
         //context.strokeText(this.value, this.x, this.y);
