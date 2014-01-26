@@ -28,6 +28,7 @@ var Level = function()
     this.motor = function()
     {
         this.decount++;
+        console.log(game.crowd.nb_of_nice);
         if(this.decount%100===0 && (game.crowd.nb_of_bad+game.crowd.nb_of_nice) < 12)
         {   
             //neutre
@@ -45,7 +46,16 @@ var Level = function()
                     var carac = 'neutral';
                     game.crowd.nb_of_nice++;
                 }
-                game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                //image selection
+                var aleaImage = Math.round(Math.random()*3);
+                if(aleaImage===0)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                if(aleaImage===1)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
+                if(aleaImage===2)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
+
+
             }
 
             //bien
@@ -63,7 +73,14 @@ var Level = function()
                     var carac = 'neutral';
                     game.crowd.nb_of_nice++;
                 }
-                game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                //image selection
+                var aleaImage = Math.round(Math.random()*3);
+                if(aleaImage===0)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                if(aleaImage===1)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
+                if(aleaImage===2)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
             }
 
             //mal
@@ -81,7 +98,14 @@ var Level = function()
                     var carac = 'bad';
                     game.crowd.nb_of_bad++;
                 }
-                game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                //image selection
+                var aleaImage = Math.round(Math.random()*3);
+                if(aleaImage===0)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/nice1.png", src2 : "medias/images/nice2.png"}));
+                if(aleaImage===1)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/gentils1.png", src2 : "medias/images/gentils2.png"}));
+                if(aleaImage===2)
+                    game.crowd.tabPeople.push(new People({ slot : game.crowd.slot[alea], nature : carac, speed : 0.2, src : "medias/images/mechant1.png", src2 : "medias/images/mechant2.png"}));
             }
 
 
