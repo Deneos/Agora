@@ -87,11 +87,16 @@ var People = function(params)
 	}
 	this.render = function()
 	{	
-		if(this.nature === "withoutFaceNeutral")
+		
+        if(this.nature === "nice")
+        {
+        	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
+        }
+        if(this.nature === "withoutFaceNeutral")
         {
         	context.drawImage(this.img3,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
         }
-        else
+        if(this.nature === "neutral" || this.nature === "bad")
         {
         	this.imageAlpha = 1-((game.player.assurance/100));
         	context.drawImage(this.img,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
@@ -99,6 +104,7 @@ var People = function(params)
         	context.drawImage(this.img2,this.currentFrameX,0,this.frameWidth,this.frameHeight,this.x-(this.width/2),this.y-(this.height/2),this.width,this.height);
         	context.globalAlpha = 1;
         }
+
 	}
 	this.animate = function ()
     {
