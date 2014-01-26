@@ -35,6 +35,7 @@ var People = function(params)
     this.dirY = 0;
     this.alive = true;
     this.timeScale = 0;
+    this.niceClick = false;
     this.type = this.img.src.substring(80, 59);
   	console.log(this.type);
 	this.sound = new Howl({
@@ -180,8 +181,10 @@ var People = function(params)
 				this.speed = 1;
 
 			}
-			if(this.nature === "neutral")
+			if(this.nature === "neutral" || this.nature === "nice" && this.niceClick === false)
 			{	
+				game.player.assurance-=5;
+				this.niceClick = true;
 			}
 		this.sound.unload();
 	}
@@ -209,7 +212,7 @@ var People = function(params)
 			}
 			if(this.nature === "neutral")
 			{	
-				game.player.assurance-=5;
+				
 				if(game.player.gender === "male")
 				{	
 					var aleaPhrase = Math.floor(Math.random()*config.male.good.sentences.length);
