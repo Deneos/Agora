@@ -163,7 +163,7 @@ var People = function(params)
 	}
 	this.cliked = function()
 	{	
-			if(this.nature === "bad")
+			if(this.nature === "withoutFaceNeutral")
 			{	
 				game.player.assurance-=5;
 				this.speed = 1;
@@ -171,7 +171,6 @@ var People = function(params)
 			}
 			if(this.nature === "neutral")
 			{	
-				this.speed = 1;
 			}
 		this.sound.unload();
 	}
